@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Braille Bridges LLC — Website Accessibility Audits</title>
+  <meta name="description" content="Affordable website accessibility audits combining automated screening with hands-on screen-reader testing by a blind professional." />
+  <meta name="google-site-verification" content="jSSfuLMgfikbakbfISxKLTmtO3TcSpuf9Jzg4elC48U" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Braille Bridges LLC",
+      "telephone": "+1-616-375-4365",
+      "email": "williamgfriday@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Grand Rapids",
+        "addressRegion": "Michigan",
+        "addressCountry": "USA"
+      },
+      "description": "$499 website accessibility audits combining automated screening with hands-on screen-reader testing by a blind professional.",
+      "priceRange": "$499"
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #ffd700;
+      --ink: #111111;
+      --line: #111111;
+      --measure: 74rem;
+      --reading: 48rem;
+      --gutter: clamp(1.25rem, 4vw, 4rem);
+      --section-space: clamp(4rem, 10vw, 8rem);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #ffd700;
+        --ink: #111111;
+        --line: #111111;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      background: var(--page);
+      color: var(--ink);
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.5rem);
+      line-height: 1.58;
+      font-weight: 500;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration-thickness: 0.13em;
+      text-underline-offset: 0.16em;
+    }
+
+    a:hover { text-decoration-thickness: 0.22em; }
+
+    a:focus-visible {
+      outline: 4px solid var(--ink);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.7rem 1rem;
+      border: 3px solid var(--ink);
+      background: var(--page);
+      color: var(--ink);
+      font-weight: 800;
+      transform: translateY(-180%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    header, main, footer { display: block; }
+
+    .section {
+      width: min(100%, var(--measure));
+      margin-inline: auto;
+      padding: var(--section-space) var(--gutter);
+      border-bottom: 3px solid var(--line);
+    }
+
+    .hero {
+      min-height: min(900px, 92vh);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(2.25rem, 6vw, 5rem);
+      padding-top: clamp(4rem, 10vw, 8rem);
+    }
+
+    .hero-copy { max-width: 65rem; }
+
+    .brand-visual {
+      width: min(100%, 48rem);
+      margin: 0 auto;
+    }
+
+    .brand-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 4px solid var(--ink);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 15ch;
+      margin-bottom: 1.6rem;
+      font-size: clamp(3.4rem, 8.8vw, 7.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      font-weight: 900;
+    }
+
+    h2 {
+      max-width: 20ch;
+      margin-bottom: clamp(1.6rem, 4vw, 2.6rem);
+      font-size: clamp(2.35rem, 5.2vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    h3 {
+      margin-bottom: 0.65rem;
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    p { margin-bottom: 1.25rem; }
+
+    .lead {
+      max-width: 46rem;
+      margin-bottom: 2rem;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.38;
+      font-weight: 650;
+    }
+
+    .button {
+      display: inline-block;
+      max-width: 100%;
+      padding: 0.9rem 1.15rem;
+      border: 4px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--ink);
+      color: var(--ink);
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height: 1.2;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .button:active {
+      transform: translate(7px, 7px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .how-title {
+      margin-bottom: 1.4rem;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .steps li {
+      position: relative;
+      padding: 1.5rem 1.4rem 1.6rem 4.4rem;
+    }
+
+    .steps li + li { border-left: 3px solid var(--ink); }
+
+    .step-number {
+      position: absolute;
+      top: 1.3rem;
+      left: 1.25rem;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .steps p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .reading { max-width: var(--reading); }
+
+    .plain-list, .offer-list, .included-list, .credentials {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plain-list li, .credentials li {
+      position: relative;
+      padding: 1.15rem 0 1.15rem 2rem;
+      border-top: 2px solid var(--ink);
+    }
+
+    .plain-list li::before, .credentials li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      top: 1.13rem;
+      font-weight: 900;
+    }
+
+    .plain-list li:last-child, .credentials li:last-child { border-bottom: 2px solid var(--ink); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+      gap: clamp(2.5rem, 7vw, 6rem);
+      align-items: start;
+    }
+
+    .credentials { font-size: 1.05rem; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3px;
+      margin-bottom: 2.5rem;
+      background: var(--ink);
+      border: 3px solid var(--ink);
+    }
+
+    .offer {
+      min-width: 0;
+      padding: clamp(1.5rem, 4vw, 2.6rem);
+      background: var(--page);
+    }
+
+    .price {
+      margin-bottom: 1.4rem;
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .price small {
+      display: block;
+      margin-top: 0.55rem;
+      font-size: 1rem;
+      line-height: 1.35;
+      letter-spacing: 0;
+      font-weight: 750;
+    }
+
+    .offer-list { font-size: 1.05rem; }
+
+    .offer-list li {
+      padding: 0.65rem 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    .offer-list li:last-child { border-bottom: 2px solid var(--ink); }
+
+    .price-context {
+      max-width: 58rem;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height: 1.5;
+    }
+
+    .honest-note {
+      max-width: 58rem;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      padding: 1.35rem 1.5rem;
+      border: 3px solid var(--ink);
+      font-weight: 750;
+    }
+
+    .widget-callout {
+      max-width: 58rem;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      padding: 1.6rem 1.75rem;
+      border: 4px solid var(--ink);
+      background: var(--ink);
+      color: var(--page);
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      line-height: 1.35;
+      font-weight: 850;
+    }
+
+    .included-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3px;
+      background: var(--ink);
+      border: 3px solid var(--ink);
+      counter-reset: included;
+    }
+
+    .included-list li {
+      counter-increment: included;
+      padding: 1.5rem;
+      background: var(--page);
+      font-size: 1.08rem;
+    }
+
+    .included-list li::before {
+      content: "0" counter(included);
+      display: block;
+      margin-bottom: 1.2rem;
+      font-size: 1.65rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .email-fallback {
+      margin-top: 1.75rem;
+      margin-bottom: 0;
+    }
+
+    .index-link {
+      margin-top: 1.75rem;
+      margin-bottom: 0;
+      font-size: 1.15rem;
+      font-weight: 750;
+    }
+
+    .debt-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3px;
+      margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+      padding: 0;
+      list-style: none;
+      background: var(--ink);
+      border: 3px solid var(--ink);
+    }
+
+    .debt-stats li {
+      padding: 1.6rem 1.5rem 1.75rem;
+      background: var(--ink);
+      color: var(--page);
+      font-size: 1.15rem;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .debt-stats strong {
+      display: block;
+      margin-bottom: 0.9rem;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+    }
+
+    .debt-subhead {
+      margin-bottom: 1.2rem;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+    }
+
+    .barrier-list {
+      margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+      padding: 0;
+      list-style: none;
+      counter-reset: barrier;
+    }
+
+    .barrier-list li {
+      counter-increment: barrier;
+      position: relative;
+      padding: 1.4rem 0 1.4rem 4.4rem;
+      border-top: 2px solid var(--ink);
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    .barrier-list li:last-child { border-bottom: 2px solid var(--ink); }
+
+    .barrier-list li::before {
+      content: counter(barrier);
+      position: absolute;
+      top: 1.15rem;
+      left: 0.4rem;
+      font-size: 2.1rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .barrier-list strong { font-weight: 900; }
+
+    .debt-meaning { max-width: var(--reading); }
+
+    .debt-footer {
+      max-width: 58rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0;
+      padding: 1.35rem 1.5rem;
+      border: 3px solid var(--ink);
+      font-size: 1.05rem;
+      font-weight: 650;
+    }
+
+    .proof-briefs {
+      max-width: var(--reading);
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .proof-article {
+      padding: 1.5rem 0 0.25rem;
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .proof-article h4 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: clamp(1.3rem, 2vw, 1.6rem);
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .proof-article p:last-child { margin-bottom: 1.25rem; }
+
+    .lookup-form { margin-bottom: 0.5rem; }
+
+    .lookup-form label {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-weight: 800;
+    }
+
+    .lookup-form input {
+      display: block;
+      width: 100%;
+      max-width: 32rem;
+      padding: 0.85rem 1rem;
+      border: 3px solid var(--ink);
+      background: #ffffff;
+      color: #111111;
+      font: inherit;
+      font-weight: 600;
+    }
+
+    .lookup-form input:focus-visible {
+      outline: 4px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .lookup-form input[aria-invalid="true"] {
+      border-color: #b3001b;
+    }
+
+    .lookup-error {
+      max-width: 32rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0;
+      color: #b3001b;
+      font-weight: 700;
+    }
+
+    .lookup-error[hidden] {
+      display: none;
+    }
+
+    .lookup-form button {
+      margin-top: 1.25rem;
+      background: var(--page);
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .lookup-result {
+      max-width: var(--reading);
+      margin-top: 1.75rem;
+      margin-bottom: 0;
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      line-height: 1.45;
+      font-weight: 750;
+    }
+
+    .lookup-result:empty { margin-top: 0; }
+
+    .lookup-result p { margin-bottom: 1rem; }
+
+    .lookup-result ul {
+      margin: 0 0 1rem;
+      padding-left: 1.6rem;
+    }
+
+    .figures-note {
+      max-width: var(--reading);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .door-contact {
+      max-width: var(--reading);
+      margin-top: 2rem;
+      margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    .contact {
+      border-bottom: 0;
+      padding-bottom: calc(var(--section-space) + env(safe-area-inset-bottom));
+    }
+
+    address {
+      max-width: var(--reading);
+      font-style: normal;
+      font-size: clamp(1.35rem, 2.7vw, 2rem);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    address p { margin-bottom: 0.9rem; }
+
+    .contact-name {
+      font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    @media (max-width: 760px) {
+      .hero { min-height: auto; }
+      .steps, .pricing-grid, .included-list, .story-grid, .debt-stats { grid-template-columns: 1fr; }
+      .steps li + li { border-left: 0; border-top: 2px solid var(--ink); }
+      .included-list, .pricing-grid { gap: 2px; }
+    }
+
+    @media (max-width: 420px) {
+      h1 { font-size: clamp(3rem, 15vw, 4rem); }
+      .button { width: calc(100% - 8px); text-align: center; }
+      .steps li { padding-left: 3.9rem; }
+      .section { padding-inline: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    @media print {
+      .skip-link { display: none; }
+      .section { max-width: none; padding-block: 2rem; break-inside: avoid; }
+      .hero { min-height: 0; }
+      .button { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header>
+    <section class="section hero" aria-labelledby="hero-title">
+      <figure class="brand-visual">
+        <img src="assets/braille-bridges-logo.jpg" width="1284" height="701" alt="Braille Bridges logo: a bridge formed with tactile dots above the words Braille Bridges, with dot patterns spelling Braille Bridges." />
+      </figure>
+
+      <div class="hero-copy">
+        <h1 id="hero-title">Your website is locking out blind customers.</h1>
+        <p class="lead">Braille Bridges finds the barriers your customers can't tell you about — tested by William Friday, a blind screen-reader user who navigates the web without sight, every day.</p>
+        <a class="button" href="#request-audit">Get your $499 audit</a>
+        <p class="index-link">Our research: <a href="#debt-index">The Grand Rapids Accessibility Debt Index</a></p>
+        <p class="index-link">Already scanned? <a href="#check-your-business">Check your business</a></p>
+      </div>
+
+      <div aria-labelledby="how-it-works">
+        <h2 class="how-title" id="how-it-works">How it works</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-number" aria-hidden="true">1</span>
+            <h3>You share your website.</h3>
+            <p>Tell us your URL — that's all we need to start.</p>
+          </li>
+          <li>
+            <span class="step-number" aria-hidden="true">2</span>
+            <h3>We test it.</h3>
+            <p>Automated accessibility scan plus hands-on testing with a screen reader, the way a blind customer experiences your site.</p>
+          </li>
+          <li>
+            <span class="step-number" aria-hidden="true">3</span>
+            <h3>You get answers.</h3>
+            <p>A plain-language report with every issue ranked by priority, so you know what to fix first.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="section" aria-labelledby="problem-title">
+      <h2 id="problem-title">The problem</h2>
+      <ul class="plain-list">
+        <li>Millions of blind and low-vision Americans shop, book appointments, and research businesses online. Most business websites shut them out — and the owner never knows.</li>
+        <li>An image with no description is invisible. A button a screen reader can't find might as well not exist. A form that can't be finished by keyboard loses the customer.</li>
+        <li>Website accessibility lawsuits keep rising every year. Most small businesses don't realize they're exposed until a demand letter arrives.</li>
+        <li>Every barrier is a customer you paid to attract — then turned away at the door.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="debt-index" aria-labelledby="debt-index-title">
+      <h2 id="debt-index-title">The Grand Rapids Accessibility Debt Index</h2>
+      <p class="lead">Braille Bridges LLC scanned local business websites with automated accessibility checks and counted the barriers that keep blind and low-vision customers out. Here is what we found:</p>
+      <ul class="debt-stats">
+        <li><strong>215</strong> business websites in the lookup</li>
+        <li><strong>4,350</strong> barriers counted</li>
+        <li><strong>85.1%</strong> of sites in the lookup had at least one serious or critical barrier (183 of 215)</li>
+      </ul>
+      <p class="figures-note">Door lookup figures: counted from the Braille Bridges scan files on record — the latest scan for each site — and updated November 12, 2026. 215 sites, 4,350 barriers, 183 of 215 sites with at least one serious or critical barrier.</p>
+      <div class="proof-briefs">
+        <h3 class="debt-subhead">Weekly Proof Brief</h3>
+        <article class="proof-article" aria-labelledby="proof-week-2-title">
+          <h4 id="proof-week-2-title">Week 2 — November 9, 2026</h4>
+          <p>Every week Braille Bridges scans local business websites the way a blind customer experiences them — and the Index above keeps the running count, updated November 12, 2026.</p>
+          <p>Our $299 Blind Task-Completion Verification puts that scan to the test. A blind accessibility specialist attempts three real tasks on your site with a screen reader — the tasks your site exists for, like booking, buying, or getting in touch — and reports what can and cannot be finished. The full $299 applies toward the $499 in-depth audit if you go further.</p>
+          <p>An honest limit: automated scans catch only a fraction of real barriers. That is why paid work pairs the scan with a hands-on screen-reader review by a blind accessibility specialist — the scan finds the pattern, and the hands-on review finds what the scan cannot see.</p>
+          <p>Partners — NFB chapters, Lions Clubs, agencies, and neighbors: please share this brief, or point Braille Bridges to a local business whose website should work for everyone. One introduction can open a door that is currently closed to blind customers.</p>
+          <p>— William Friday, Founder, Braille Bridges LLC<br />Phone: <a href="tel:+16163754365">616-375-4365</a><br />Email: <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a></p>
+        </article>
+      </div>
+      <h3 class="debt-subhead">The five most common barriers</h3>
+      <ol class="barrier-list">
+        <li><strong>Unlabeled page sections — 1,288 instances.</strong> Content outside labeled landmark regions. Page content placed where screen-reader navigation cannot reach it in order.</li>
+        <li><strong>Text too faint to read — 1,230 instances.</strong> Weak color contrast. Text that low-vision visitors physically cannot read.</li>
+        <li><strong>Links that say nothing — 317 instances.</strong> Links with no usable name. A screen reader announces &ldquo;link&rdquo; — and nothing else. The visitor cannot know where it goes.</li>
+        <li><strong>Scrambled headings — 211 instances.</strong> Heading structure out of order. Headings are how a blind visitor skims a page, and when they jump around out of sequence, the page stops making sense.</li>
+        <li><strong>Images with no description — 173 instances.</strong> Missing image alt text. An image with no description is invisible to a screen reader — the visitor hears nothing where the picture was meant to speak.</li>
+      </ol>
+      <h3 class="debt-subhead">What this means</h3>
+      <div class="debt-meaning">
+        <p>These are not design opinions. Each barrier is a place where a blind or low-vision customer — in a metro area where thousands of residents live with vision loss — cannot complete the task the website exists for: booking, buying, applying, asking. Every barrier counted here is fixable. Most are inexpensive to fix. They persist because nobody has measured them — until now.</p>
+      </div>
+      <p class="debt-footer">Braille Bridges LLC, Grand Rapids, Michigan. Methodology: automated accessibility scanning of publicly available pages. Figures are counted from the Braille Bridges scan files on record — the latest scan for each site — updated November 12, 2026. Counts are totals across all sites in the lookup; no individual business is identified in this index.</p>
+      <p class="index-link">Is your business one of the 215? <a href="#check-your-business">Check your business</a></p>
+    </section>
+
+    <section class="section" id="check-your-business" aria-labelledby="check-title">
+      <h2 id="check-title">Check your business — your first page is free</h2>
+      <p class="lead">Enter your website address. If we have already scanned it, you will see your barrier count and the first page of your findings right here, free — the top barriers on the page we scanned, in plain language.</p>
+      <form class="lookup-form" id="lookup-form">
+        <label for="domain-input">Your website (for example: yourbusiness.com)</label>
+        <input type="text" id="domain-input" name="domain" autocomplete="url" inputmode="url" placeholder="yourbusiness.com" aria-describedby="domain-error" />
+        <p class="lookup-error" id="domain-error" role="alert" hidden></p>
+        <button class="button" type="submit">Check my site</button>
+      </form>
+      <div class="lookup-result" id="lookup-result" role="status" aria-live="polite"></div>
+
+      <h3 class="debt-subhead">What comes after the first page</h3>
+      <p class="reading">The free first page is a taste — the top findings from one page. The full picture comes in two steps:</p>
+      <p class="reading"><strong>Full scan, kept current — $9.99 a month.</strong> We rescan your whole site every month and send a short report on what changed: new barriers, fixed barriers, and the ones that still matter most. Websites change; the watch keeps up.</p>
+      <p class="reading"><strong>Hands-on verification — $299.</strong> The Blind Task-Completion Verification is a blind accessibility specialist working through your site's key tasks with a screen reader — the human check no automated scan can do. It is never part of the free taste. The $299 is credited in full toward the $499 full audit if you go further.</p>
+
+      <h3 class="debt-subhead">Request your count</h3>
+      <p class="reading">Not in the lookup yet? Request your barrier count and we will email it to you. The form is also the way to ask about the $9.99 monthly full-scan watch or the $299 verification.</p>
+      <p><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSc4o559pu_WTjUrdjEfAdcPEDahJJEfE5xSXTG9dROQsmWZng/viewform" target="_blank" rel="noopener" aria-label="Request your count — open the form (opens in a new tab)">Request your count — open the form</a></p>
+
+      <h3 class="debt-subhead">Honest limits</h3>
+      <p class="reading">Automated scans catch only a fraction of real barriers. Keyboard traps, screen-reader reading order, and whether a blind customer can actually finish a purchase or a booking do not show up in a scan. That is why the paid verification pairs automation with a hands-on screen-reader review by a blind accessibility specialist. A scan count is a starting point — it does not decide whether a site meets any legal standard.</p>
+      <p class="door-contact">Braille Bridges LLC · Grand Rapids, Michigan · William Friday, Founder · <a href="tel:+16163754365">616-375-4365</a> · <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a></p>
+    </section>
+
+    <section class="section" aria-labelledby="founder-title">
+      <h2 id="founder-title">The bridge — our founder</h2>
+      <div class="story-grid">
+        <div class="reading">
+          <p>I'm William Friday. I'm legally blind, and I started Braille Bridges because I saw a gap nobody was filling the right way. Automated tools catch only a fraction of real barriers — and the companies selling audits don't include the people who actually live with the results.</p>
+          <p>Here's the bridge: when you work with Braille Bridges, you don't just get a more accessible website. Your payment supports blind-led work — testing your site and contributing to your success. Both sides solve the problem together. Technology and good intentions.</p>
+        </div>
+        <ul class="credentials" aria-label="William Friday's experience">
+          <li>30 years of training with the Hadley School for the Blind: Braille, access technology, business law, entrepreneurship</li>
+          <li>7 years as a Vocational Rehabilitation client with Michigan's Bureau of Services for Blind Persons</li>
+          <li>5 years at the BSBP Training Center in Kalamazoo: orientation, mobility, employment readiness</li>
+          <li>A lifetime of navigating the web by ear — every single day</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Pricing</h2>
+      <div class="pricing-grid">
+        <article class="offer" aria-labelledby="audit-offer">
+          <h3 id="audit-offer">Website Accessibility Audit</h3>
+          <p class="price">$499 <small>one-time</small></p>
+          <ul class="offer-list">
+            <li>Automated accessibility scan of your site</li>
+            <li>Manual screen-reader testing by a blind professional</li>
+            <li>Plain-language report with fixes ranked by priority</li>
+            <li>Delivered within 5 business days of payment</li>
+            <li>30 days of free follow-up questions about the findings</li>
+            <li>One free re-scan of the same pages within 60 days to verify your fixes</li>
+            <li>Every audit includes 30 days of website monitoring FREE — then $9.99/month to keep it that way. Cancel anytime.</li>
+          </ul>
+        </article>
+        <article class="offer" aria-labelledby="monitoring-offer">
+          <h3 id="monitoring-offer">Ongoing Monitoring</h3>
+          <p class="price">$9.99 <small>per month</small></p>
+          <ul class="offer-list">
+            <li>A fresh automated check of your site every month, with results emailed to you in plain language</li>
+          </ul>
+        </article>
+      </div>
+      <p class="price-context"><strong>Why $499?</strong> Larger agencies charge $8,000 to $35,000 for manual audits, and competitors' human-reviewed audits start around $4,900. Overlay widgets like accessiBe, UserWay, and AudioEye charge hundreds per year for automated tools that disability advocates widely criticize — and their customers still get sued. Our audit pairs automated screening with real human testing, at a price a small business can actually afford. Every dollar supports blind employment.</p>
+      <p class="widget-callout">Already paying for an accessibility widget? Our $499 audit shows you what it missed.</p>
+      <p class="honest-note"><strong>An honest note:</strong> automated scans catch only a fraction of real barriers, and no audit or tool can promise legal compliance. We tell you exactly what we find, in plain language. That's the deal.</p>
+    </section>
+
+    <section class="section" aria-labelledby="lived-title">
+      <h2 id="lived-title">Tested by lived experience</h2>
+      <p class="lead">Every Braille Bridges audit is tested by a legally blind screen-reader user. Founder William Friday personally tests every site — starting with audit one — and as volume grows, trained blind testers join the work.</p>
+      <ul class="plain-list">
+        <li>Automated scans find code issues. A blind tester finds the barriers real users actually hit — the checkout that can't be finished, the button that can't be found, the form that can't be submitted.</li>
+        <li>Your site is tested the way your blind customers actually use it: by ear, by keyboard, with a screen reader — not by a checklist alone.</li>
+        <li>Lived experience is the moat no competitor can copy. Anyone can buy the same scanning software. Nobody else brings a lifetime of navigating the web without sight to your audit.</li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="included-title">
+      <h2 id="included-title">Included with every audit</h2>
+      <ul class="included-list">
+        <li><strong>Free re-scan within 60 days</strong> — one free re-scan of the same pages; watch your issue count drop as you fix things</li>
+        <li><strong>Top 3 quick wins</strong> — the fastest fixes you can make this week, on a single page</li>
+        <li><strong>Quarterly accessibility tips</strong> — short, plain-language guidance to keep your site accessible as it grows</li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="beyond-title">
+      <h2 id="beyond-title">Beyond the audit</h2>
+      <p class="reading">Need more than a one-time report? I offer consultation as your business grows — staff training so fixes stick, document and form cleanup, pre-launch testing by me as a blind screen-reader user, and a plain-language accessibility roadmap. As Braille Bridges grows, trained blind associates will join this work. Just ask what's possible.</p>
+    </section>
+
+    <section class="section" id="request-audit" aria-labelledby="request-title">
+      <h2 id="request-title">Request your audit</h2>
+      <p class="reading">Ready to find out what your site is hiding? The button below opens our short audit request form in a new tab — a few questions and you're done.</p>
+      <p><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd4ypjarCrXeNdN1NiudI7pnhheqKfiv1hzr2fRxbe1zkMh-A/viewform" target="_blank" rel="noopener" aria-label="Request an audit — opens the audit request form in a new tab">Request an audit</a></p>
+      <p class="email-fallback">Prefer plain email? Write to <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <section class="section contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <address>
+        <p class="contact-name">William Friday, Founder — Braille Bridges LLC</p>
+        <p>Grand Rapids, Michigan</p>
+        <p>Phone: <a href="tel:+16163754365">616-375-4365</a></p>
+        <p>Email: <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a></p>
+        <p>Research: <a href="#debt-index">The Grand Rapids Accessibility Debt Index</a></p>
+        <p>Check your business: <a href="#check-your-business">See your scan result</a></p>
+      </address>
+    </section>
+  </footer>
+
+  <script>
+    var LOOKUP = {"1legacyhvac.com": {"domain": "1legacyhvac.com", "business_name": "1 Legacy Heating & Cooling", "total_violations": 2, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't navigate your page by headings — found 1 time on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "44westdental.com": {"domain": "44westdental.com", "business_name": "Grandville & Cascade MI Dentists Serving Greater Grand Rapids | 44 West", "total_violations": 41, "critical": 0, "serious": 4, "teaser": ["Visitors with low vision can't read your text — found 4 times on your site", "A blind visitor can't jump to sections of your page — found 37 times on your site"]}, "456autofix.com": {"domain": "456autofix.com", "business_name": "Auto Repair in Grand Rapids, MI - 456 AutoFix", "total_violations": 28, "critical": 0, "serious": 24, "teaser": ["Visitors with low vision can't read your text — found 24 times on your site", "A blind visitor can't jump to sections of your page — found 3 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "4gr8food.com": {"domain": "4gr8food.com", "business_name": "4GR8Food Group | West Michigan Restaurants", "total_violations": 20, "critical": 0, "serious": 18, "teaser": ["A blind visitor can't tell where your links go — found 18 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site"]}, "4kaccounting.com": {"domain": "4kaccounting.com", "business_name": "Grand Rapids Accounting Firm & CPA | 4K Accounting Services", "total_violations": 63, "critical": 0, "serious": 12, "teaser": ["Visitors with low vision can't read your text — found 12 times on your site", "A blind visitor can't jump to sections of your page — found 50 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "616dentalstudio.com": {"domain": "616dentalstudio.com", "business_name": "Grand Rapids, MI, Dentist | 616 Dental Studio | Dr. Marcos Cid", "total_violations": 2, "critical": 0, "serious": 2, "teaser": ["Visitors with low vision can't read your text — found 2 times on your site"]}, "7monkstap.com": {"domain": "7monkstap.com", "business_name": "7 Monks Taproom", "total_violations": 6, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 4 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "aboveroofing.com": {"domain": "aboveroofing.com", "business_name": "Grand Rapids Roofing | 4.8★, 800+ Reviews – Above Roofing", "total_violations": 12, "critical": 0, "serious": 9, "teaser": ["Visitors with low vision can't read your text — found 9 times on your site", "A blind visitor can't jump to sections of your page — found 3 times on your site"]}, "advancedentalsmile.com": {"domain": "advancedentalsmile.com", "business_name": "Advance Dental | Family & Cosmetic Dentists in Grand Rapids, MI", "total_violations": 44, "critical": 0, "serious": 8, "teaser": ["Visitors with low vision can't read your text — found 8 times on your site", "A blind visitor can't jump to sections of your page — found 35 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "aeheatingcooling.net": {"domain": "aeheatingcooling.net", "business_name": "Residential HVAC Contractors/Installers Near Me | Furnace and AC Company Grand Rapids MI", "total_violations": 48, "critical": 1, "serious": 11, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 8 times on your site", "A blind visitor can't tell where your links go — found 3 times on your site"]}, "alifeofsmiles.com": {"domain": "alifeofsmiles.com", "business_name": "Grand Rapids Cosmetic Dentist", "total_violations": 60, "critical": 1, "serious": 29, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "A blind visitor can't tell where your links go — found 17 times on your site", "Links must be distinguishable without relying on color — found 7 times on your site"]}, "alpineridgedental.com": {"domain": "alpineridgedental.com", "business_name": "Alpine Ridge Dental: Grand Rapids Dentist Sunil Desai DDS – Complete Service Dentistry in Grand Rapids: Alpine Ridge Dental", "total_violations": 53, "critical": 6, "serious": 9, "teaser": ["A blind visitor can't tell what your form fields are for — found 5 times on your site", "A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 3 times on your site"]}, "applause-catering.net": {"domain": "applause-catering.net", "business_name": "Home - Applause Catering + Events", "total_violations": 21, "critical": 0, "serious": 4, "teaser": ["ARIA commands must have an accessible name — found 2 times on your site", "Visitors with low vision can't read your text — found 2 times on your site", "A blind visitor can't jump to sections of your page — found 14 times on your site"]}, "arniesbakery.com": {"domain": "arniesbakery.com", "business_name": "Arnie's Bakery", "total_violations": 8, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't navigate your page by headings — found 3 times on your site", "A blind visitor can't tell your page sections apart — found 2 times on your site", "A blind visitor can't jump to sections of your page — found 2 times on your site"]}, "atosushigr.com": {"domain": "atosushigr.com", "business_name": "Ato Sushi | Grand Rapids Premier Sushi", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "automatenexus.com": {"domain": "automatenexus.com", "business_name": "AI Automation Agency for Small Business | AutomateNexus", "total_violations": 1, "critical": 0, "serious": 1, "teaser": ["Elements must have their visible text as part of their accessible name — found 1 time on your site"]}, "autorepairjenisonmi.com": {"domain": "autorepairjenisonmi.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "avantilaw.com": {"domain": "avantilaw.com", "business_name": "Home - Avanti Law Group", "total_violations": 24, "critical": 0, "serious": 10, "teaser": ["Visitors with low vision can't read your text — found 10 times on your site", "A blind visitor can't jump to sections of your page — found 5 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site"]}, "avilahomegroup.com": {"domain": "avilahomegroup.com", "business_name": "Sam Avila | Grand Rapids & West Michigan Real Estate", "total_violations": 2, "critical": 0, "serious": 1, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "awbraces.com": {"domain": "awbraces.com", "business_name": "Armbrecht & Wierenga Orthodontics | Grand Rapids & Grandville", "total_violations": 2, "critical": 0, "serious": 2, "teaser": ["Elements must have their visible text as part of their accessible name — found 2 times on your site"]}, "b-squared.tech": {"domain": "b-squared.tech", "business_name": "B-Squared Technologies | Web Design & SEO in Washington, UT", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "bemanaged.com": {"domain": "bemanaged.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "bernallandscape.com": {"domain": "bernallandscape.com", "business_name": "Bernal Landscape Management | Landscaper in Grand Rapids, MI", "total_violations": 7, "critical": 0, "serious": 6, "teaser": ["Elements must only use permitted ARIA attributes — found 4 times on your site", "Visitors with low vision can't read your text — found 1 time on your site", "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements — found 1 time on your site"]}, "bissonlegal.com": {"domain": "bissonlegal.com", "business_name": "Grand Rapids & Las Vegas Trial Lawyer | Mitchell S. Bisson", "total_violations": 3, "critical": 0, "serious": 3, "teaser": ["Links must be distinguishable without relying on color — found 2 times on your site", "Elements must have their visible text as part of their accessible name — found 1 time on your site"]}, "bistrobellavita.com": {"domain": "bistrobellavita.com", "business_name": "Bistro Bella Vita Restaurant | Downtown Grand Rapids", "total_violations": 10, "critical": 0, "serious": 7, "teaser": ["A blind visitor can't tell where your links go — found 4 times on your site", "Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site"]}, "blog.pohlonskirealestate.com": {"domain": "blog.pohlonskirealestate.com", "business_name": "Grand Rapids Real Estate Guidance | Jason Pohlonski", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "bosna-express.com": {"domain": "bosna-express.com", "business_name": "Account Suspended : Folio Websites", "total_violations": 5, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "boumabros.com": {"domain": "boumabros.com", "business_name": "Garage Door Companies Hudsonville, MI", "total_violations": 21, "critical": 0, "serious": 18, "teaser": ["A blind visitor can't tell where your links go — found 11 times on your site", "Elements must only use permitted ARIA attributes — found 6 times on your site", "Links must be distinguishable without relying on color — found 1 time on your site"]}, "bracehomes.com": {"domain": "bracehomes.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "breweryvivant.com": {"domain": "breweryvivant.com", "business_name": "Brewery Vivant - Grand Rapids, MI", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "brinkschiropractic.janeapp.com": {"domain": "brinkschiropractic.janeapp.com", "business_name": "Book Online | Brinks Integrative Health and Chiropractic", "total_violations": 8, "critical": 0, "serious": 7, "teaser": ["Visitors with low vision can't read your text — found 7 times on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "brittlawcounselor.com": {"domain": "brittlawcounselor.com", "business_name": "Grand Rapids Attorneys | Britt Law Group PC", "total_violations": 60, "critical": 0, "serious": 52, "teaser": ["Visitors with low vision can't read your text — found 29 times on your site", "Links must be distinguishable without relying on color — found 23 times on your site", "A blind visitor can't jump to sections of your page — found 5 times on your site"]}, "butchersuniongr.com": {"domain": "butchersuniongr.com", "business_name": "Butcher's Union | Grand Rapids", "total_violations": 5, "critical": 0, "serious": 5, "teaser": ["A blind visitor can't tell where your links go — found 4 times on your site", "ARIA commands must have an accessible name — found 1 time on your site"]}, "cascadefid.com": {"domain": "cascadefid.com", "business_name": "Cascade Family & Implant Dentistry", "total_violations": 15, "critical": 1, "serious": 8, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 2 times on your site", "Links must be distinguishable without relying on color — found 2 times on your site"]}, "cateredcreationsinc.com": {"domain": "cateredcreationsinc.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "cherylgrant.com": {"domain": "cherylgrant.com", "business_name": "Cheryl Grant Real Estate Team | View Grand Rapids Homes", "total_violations": 40, "critical": 1, "serious": 8, "teaser": ["Certain ARIA roles must contain particular children — found 1 time on your site", "ARIA commands must have an accessible name — found 2 times on your site", "A blind visitor can't tell where your links go — found 2 times on your site"]}, "citylightsgrandrapids.com": {"domain": "citylightsgrandrapids.com", "business_name": "We Buy Houses in Grand Rapids, MI | Cash Offer in 24 Hours", "total_violations": 43, "critical": 0, "serious": 32, "teaser": ["Visitors with low vision can't read your text — found 31 times on your site", "Links must be distinguishable without relying on color — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 3 times on your site"]}, "cleanairlawncare.com": {"domain": "cleanairlawncare.com", "business_name": "Clean Air Lawn Care: Eco-Friendly Organic Lawn Care Service", "total_violations": 8, "critical": 0, "serious": 8, "teaser": ["Visitors with low vision can't read your text — found 8 times on your site"]}, "clearconnectionschiropractic.com": {"domain": "clearconnectionschiropractic.com", "business_name": "Grand Rapids Chiropractor | Clear Connections Chiropractic", "total_violations": 62, "critical": 0, "serious": 5, "teaser": ["A blind visitor can't tell where your links go — found 4 times on your site", "Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 56 times on your site"]}, "clearskyeye.care": {"domain": "clearskyeye.care", "business_name": "Clear Sky Eyecare | Grand Rapids, MI", "total_violations": 2, "critical": 0, "serious": 1, "teaser": ["A blind visitor can't tell what your embedded content is — found 1 time on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "comcast.net": {"domain": "comcast.net", "business_name": "Access Denied", "total_violations": 5, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 3 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "communityautomotive.com": {"domain": "communityautomotive.com", "business_name": "Community Automotive Repair - Home", "total_violations": 34, "critical": 22, "serious": 0, "teaser": ["A blind visitor can't tell what your buttons do — found 18 times on your site", "A blind visitor hears nothing where your images are — found 4 times on your site", "A blind visitor can't jump to sections of your page — found 11 times on your site"]}, "compaandoor.com": {"domain": "compaandoor.com", "business_name": "Compaan Door & Operator Co", "total_violations": 44, "critical": 0, "serious": 8, "teaser": ["A blind visitor can't tell where your links go — found 4 times on your site", "A blind visitor can't tell what your embedded content is — found 3 times on your site", "Form elements should have a visible label — found 1 time on your site"]}, "contemporaryfamilydental.com": {"domain": "contemporaryfamilydental.com", "business_name": "One moment, please...", "total_violations": 3, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't find the main heading of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "corelegalplc.com": {"domain": "corelegalplc.com", "business_name": "Robot Challenge Screen", "total_violations": 2, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "cornerstonehomegroup.com": {"domain": "cornerstonehomegroup.com", "business_name": "Grand Rapids, MI Real Estate Agents | Cornerstone Home Group", "total_violations": 25, "critical": 0, "serious": 11, "teaser": ["A blind visitor can't tell where your links go — found 7 times on your site", "Visitors with low vision can't read your text — found 4 times on your site", "A blind visitor can't jump to sections of your page — found 9 times on your site"]}, "coxlandscape.com": {"domain": "coxlandscape.com", "business_name": "Landscape Design Grand Rapids | Cox Landscape and Garden Design", "total_violations": 19, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't jump to sections of your page — found 19 times on your site"]}, "craigjenisonlaw.com": {"domain": "craigjenisonlaw.com", "business_name": "Craig Jenison Law", "total_violations": 2, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "criminaldefenselawcenterwestmichigan.com": {"domain": "criminaldefenselawcenterwestmichigan.com", "business_name": "Criminal Defense Lawyers in Grand Rapids, MI | Shawn Haff", "total_violations": 15, "critical": 0, "serious": 10, "teaser": ["Elements must have their visible text as part of their accessible name — found 8 times on your site", "ARIA hidden element must not be focusable or contain focusable elements — found 2 times on your site", "A blind visitor can't jump to sections of your page — found 4 times on your site"]}, "dakc.us": {"domain": "dakc.us", "business_name": "Disability Advocates Kent County | Working Alongside People with Disabilities", "total_violations": 2, "critical": 0, "serious": 1, "teaser": ["Elements must have their visible text as part of their accessible name — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "denturesinaday.com": {"domain": "denturesinaday.com", "business_name": "Same Day Dentures And Affordable Family Dentistry In NC", "total_violations": 8, "critical": 0, "serious": 6, "teaser": ["Visitors with low vision can't read your text — found 6 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site", "A blind visitor can't find the main heading of your page — found 1 time on your site"]}, "devriesdentalmi.com": {"domain": "devriesdentalmi.com", "business_name": "DeVries Dental of West Michigan | Grand Rapids Family Dentist – Dr. Derek J. DeVries DDS", "total_violations": 7, "critical": 0, "serious": 2, "teaser": ["Links must be distinguishable without relying on color — found 2 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site", "Contentinfo landmark should not be contained in another landmark — found 1 time on your site"]}, "doughansenrealestate.com": {"domain": "doughansenrealestate.com", "business_name": "Doug Hansen Real Estate", "total_violations": 18, "critical": 0, "serious": 18, "teaser": ["Visitors with low vision can't read your text — found 18 times on your site"]}, "eastbrookhomes.com": {"domain": "eastbrookhomes.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "eastownvet.com": {"domain": "eastownvet.com", "business_name": "Best Animal Hospital In Grand Rapids, MI | Eastown Veterinary Clinic", "total_violations": 37, "critical": 0, "serious": 7, "teaser": ["Visitors with low vision can't read your text — found 7 times on your site", "A blind visitor can't jump to sections of your page — found 23 times on your site", "A blind visitor can't navigate your page by headings — found 5 times on your site"]}, "edgewoodbakerygr.com": {"domain": "edgewoodbakerygr.com", "business_name": "Edgewood Bakery | Grand Rapids | Pre-Order Cakes, Cupcakes, & More", "total_violations": 7, "critical": 0, "serious": 7, "teaser": ["A blind visitor can't tell where your links go — found 4 times on your site", "Visitors with low vision can't read your text — found 3 times on your site"]}, "ervines.com": {"domain": "ervines.com", "business_name": "Auto Repair in Grand Rapids, MI | Schedule Service Today", "total_violations": 6, "critical": 0, "serious": 6, "teaser": ["Visitors with low vision can't read your text — found 4 times on your site", "A blind visitor can't tell what your embedded content is — found 2 times on your site"]}, "example.com": {"domain": "example.com", "business_name": "Example Domain", "total_violations": 9, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't jump to sections of your page — found 7 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't find the main heading of your page — found 1 time on your site"]}, "experiencegr.com": {"domain": "experiencegr.com", "business_name": "Access Denied", "total_violations": 5, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 3 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "eykplumbing.com": {"domain": "eykplumbing.com", "business_name": "Plumbing Company | Local Plumber | Cedar Springs, Rockford, Grand Rapids, Comstock Park & Sparta, MI | Eyk Plumbing – Eyk Plumbing is a local plumber in Cedar Springs, MI. We offer plumbing services to home and business owners, including repairs, installations, and more. Give us a call today!", "total_violations": 67, "critical": 0, "serious": 48, "teaser": ["Visitors with low vision can't read your text — found 41 times on your site", "A blind visitor can't tell where your links go — found 4 times on your site", "A blind visitor can't tell what your embedded content is — found 2 times on your site"]}, "familyfriendsvet.com": {"domain": "familyfriendsvet.com", "business_name": "403 Forbidden", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "fancyrealestate.org": {"domain": "fancyrealestate.org", "business_name": "Fancy Real Estate", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "foresightlawfirm.com": {"domain": "foresightlawfirm.com", "business_name": "", "total_violations": 3, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor hits empty headings that say nothing — found 1 time on your site"]}, "foresthillsvet.com": {"domain": "foresthillsvet.com", "business_name": "Best Vet Hospital In Grand Rapids | Forest Hills Veterinary Clinic", "total_violations": 33, "critical": 1, "serious": 13, "teaser": ["A blind visitor can't tell what your form fields are for — found 1 time on your site", "Visitors with low vision can't read your text — found 12 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site"]}, "foundersbrewing.com": {"domain": "foundersbrewing.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "fratellisgr.com": {"domain": "fratellisgr.com", "business_name": "Fratelli’s Grand Rapids — Authentic Italian Dining", "total_violations": 1, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "fredsitalian.net": {"domain": "fredsitalian.net", "business_name": "Authentic Italian in Grand Rapids, MI | Fred's", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "freedomchiromi.com": {"domain": "freedomchiromi.com", "business_name": "Home | Freedom Chiropractic", "total_violations": 15, "critical": 0, "serious": 15, "teaser": ["Visitors with low vision can't read your text — found 15 times on your site"]}, "fuelhealthwellness.com": {"domain": "fuelhealthwellness.com", "business_name": "Trusted Physical Therapy & Wellness in Grand Rapids, MI", "total_violations": 12, "critical": 0, "serious": 11, "teaser": ["Visitors with low vision can't read your text — found 11 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "fultonfamilydds.com": {"domain": "fultonfamilydds.com", "business_name": "Fulton Family Dentistry – Local Family Dentist Office", "total_violations": 34, "critical": 32, "serious": 1, "teaser": ["A blind visitor hears nothing where your images are — found 32 times on your site", "Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't find the main heading of your page — found 1 time on your site"]}, "gaslightvillagefamilydentistry.com": {"domain": "gaslightvillagefamilydentistry.com", "business_name": "ERROR: The request could not be satisfied", "total_violations": 5, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 3 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "getwellgr.com": {"domain": "getwellgr.com", "business_name": "Northside Chiropractic: #1 Chiropractor in Grand Rapids MI", "total_violations": 67, "critical": 0, "serious": 60, "teaser": ["Visitors with low vision can't read your text — found 29 times on your site", "A blind visitor can't tell where your links go — found 16 times on your site", "ARIA commands must have an accessible name — found 12 times on your site"]}, "gilmore-catering.com": {"domain": "gilmore-catering.com", "business_name": "Gilmore Catering | Catering in Grand Rapids, MI & West Michigan", "total_violations": 35, "critical": 7, "serious": 12, "teaser": ["A blind visitor can't tell what your form fields are for — found 3 times on your site", "A blind visitor can't use your dropdown menus — found 3 times on your site", "A blind visitor hears nothing where your images are — found 1 time on your site"]}, "godwinplumbing.com": {"domain": "godwinplumbing.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "gorsuchchiro.com": {"domain": "gorsuchchiro.com", "business_name": "Gorsuch & Friends - Grand Rapids, MI Chiropractor", "total_violations": 35, "critical": 0, "serious": 23, "teaser": ["Visitors with low vision can't read your text — found 20 times on your site", "A blind visitor can't tell where your links go — found 2 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site"]}, "grandlaw.com": {"domain": "grandlaw.com", "business_name": "Grand Law | Grand Law", "total_violations": 14, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't jump to sections of your page — found 10 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "grandrapidsdental.co": {"domain": "grandrapidsdental.co", "business_name": "Home - Grand Rapids Dental", "total_violations": 39, "critical": 12, "serious": 25, "teaser": ["A blind visitor hears nothing where your images are — found 12 times on your site", "Visitors with low vision can't read your text — found 16 times on your site", "Scrollable region must have keyboard access — found 5 times on your site"]}, "grandrapidsdentists.com": {"domain": "grandrapidsdentists.com", "business_name": "403 Forbidden", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "grandrapidspaintingservices.com": {"domain": "grandrapidspaintingservices.com", "business_name": "Painters in Grand Rapids, MI | Grand Rapids Painting Services", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "grandrapidsremodel.com": {"domain": "grandrapidsremodel.com", "business_name": "Grand Rapids Remodel | Top-Rated Remodeling Contractor", "total_violations": 15, "critical": 0, "serious": 6, "teaser": ["Visitors with low vision can't read your text — found 4 times on your site", "Links must be distinguishable without relying on color — found 2 times on your site", "A blind visitor can't navigate your page by headings — found 5 times on your site"]}, "grandridgeorthodontics.com": {"domain": "grandridgeorthodontics.com", "business_name": "Orthodontists Grand Rapids | Grand Ridge Orthodontics | Grand Rapids Ortho", "total_violations": 7, "critical": 0, "serious": 3, "teaser": ["A blind visitor can't tell where your links go — found 3 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "grandvilledental.com": {"domain": "grandvilledental.com", "business_name": "Dentist in Grandville, MI | Grandville Dental Health Center", "total_violations": 41, "critical": 0, "serious": 39, "teaser": ["Visitors with low vision can't read your text — found 39 times on your site", "A blind visitor can't jump to sections of your page — found 2 times on your site"]}, "grandvilleendodontics.com": {"domain": "grandvilleendodontics.com", "business_name": "Grandville Endodontics | Expert Root Canal & Endodontic Care in West Michigan", "total_violations": 34, "critical": 0, "serious": 3, "teaser": ["Visitors with low vision can't read your text — found 3 times on your site", "A blind visitor can't jump to sections of your page — found 31 times on your site"]}, "grbangkoktastecuisine.com": {"domain": "grbangkoktastecuisine.com", "business_name": "Thai Restaurant - GR Bangkok Taste Cuisine", "total_violations": 11, "critical": 2, "serious": 5, "teaser": ["A blind visitor can't tell what your buttons do — found 2 times on your site", "Visitors with low vision can't read your text — found 2 times on your site", "[role=\"img\"] and [role=\"image\"] elements must have alternative text — found 2 times on your site"]}, "greatlakesdentalcare.com": {"domain": "greatlakesdentalcare.com", "business_name": "Grand Rapids Dentists | Family & Cosmetic Dentistry | Great Lakes Dental Care | Grand Rapids Dental Services | West Michigan Dentist | Preventative, Cosmetic, Restorative and Specialty Dental Services", "total_violations": 20, "critical": 0, "serious": 10, "teaser": ["Visitors with low vision can't read your text — found 10 times on your site", "A blind visitor can't navigate your page by headings — found 5 times on your site", "A blind visitor can't jump to sections of your page — found 4 times on your site"]}, "grecospizzagr.com": {"domain": "grecospizzagr.com", "business_name": "Must-Try Pizza in Grand Rapids, MI | Greco's Pizza", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "greenridge.com": {"domain": "greenridge.com", "business_name": "Greenridge Realty", "total_violations": 44, "critical": 9, "serious": 22, "teaser": ["A blind visitor hears nothing where your images are — found 7 times on your site", "Certain ARIA roles must contain particular children — found 2 times on your site", "Visitors with low vision can't read your text — found 12 times on your site"]}, "grhometeam.com": {"domain": "grhometeam.com", "business_name": "Home - GR Home Team", "total_violations": 41, "critical": 0, "serious": 33, "teaser": ["Elements must only use permitted ARIA attributes — found 21 times on your site", "Visitors with low vision can't read your text — found 6 times on your site", "Elements must have their visible text as part of their accessible name — found 6 times on your site"]}, "grpm.org": {"domain": "grpm.org", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "grvetclinic.com": {"domain": "grvetclinic.com", "business_name": "403 Forbidden", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "grwellbeing.com": {"domain": "grwellbeing.com", "business_name": "Mental Health Outpatient Counseling and Fitness Center, The Well Being, Grand Rapids", "total_violations": 3, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't navigate your page by headings — found 2 times on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "hadleyhelps.org": {"domain": "hadleyhelps.org", "business_name": "Search | Hadley", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "hagenauerlaw.com": {"domain": "hagenauerlaw.com", "business_name": "Estate Planning | Hagenauer Law | Grand Rapids", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "happiplumbing.com": {"domain": "happiplumbing.com", "business_name": "Happi Plumbing -", "total_violations": 52, "critical": 2, "serious": 41, "teaser": ["A blind visitor can't tell what your buttons do — found 2 times on your site", "Visitors with low vision can't read your text — found 41 times on your site", "A blind visitor can't jump to sections of your page — found 5 times on your site"]}, "harmonybeer.com": {"domain": "harmonybeer.com", "business_name": "Home - Harmony Beer", "total_violations": 24, "critical": 8, "serious": 2, "teaser": ["A blind visitor hears nothing where your images are — found 8 times on your site", "Visitors with low vision can't read your text — found 2 times on your site", "A blind visitor can't jump to sections of your page — found 10 times on your site"]}, "hillslawoffice.com": {"domain": "hillslawoffice.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "hjphysicaltherapy.com": {"domain": "hjphysicaltherapy.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "holdengr.com": {"domain": "holdengr.com", "business_name": "Holden Richardson | Grand Rapids Real Estate Agent", "total_violations": 36, "critical": 0, "serious": 35, "teaser": ["Visitors with low vision can't read your text — found 34 times on your site", "A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "holtvluwerlaw.com": {"domain": "holtvluwerlaw.com", "business_name": "Holtvluwer Law, PC", "total_violations": 12, "critical": 0, "serious": 8, "teaser": ["Visitors with low vision can't read your text — found 8 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "homespecialistsllc.com": {"domain": "homespecialistsllc.com", "business_name": "Home - Home Specialists LLC", "total_violations": 43, "critical": 0, "serious": 33, "teaser": ["Visitors with low vision can't read your text — found 20 times on your site", "A blind visitor can't tell where your links go — found 12 times on your site", "Links must be distinguishable without relying on color — found 1 time on your site"]}, "hopcat.com": {"domain": "hopcat.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "imlaw.biz": {"domain": "imlaw.biz", "business_name": "ImLaw: Experienced U.S. Immigration Counsel for Employers and Individuals • ImLaw", "total_violations": 5, "critical": 0, "serious": 3, "teaser": ["Visitors with low vision can't read your text — found 3 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "jackofallbladeslandscaping.com": {"domain": "jackofallbladeslandscaping.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "jakusushi.com": {"domain": "jakusushi.com", "business_name": "Jaku Sushi – The Best Sushi in Town", "total_violations": 10, "critical": 0, "serious": 5, "teaser": ["A blind visitor can't tell what your embedded content is — found 2 times on your site", "A blind visitor can't tell where your links go — found 2 times on your site", "Visitors with low vision can't read your text — found 1 time on your site"]}, "jbzoo.org": {"domain": "jbzoo.org", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "jimwilsonhomes.com": {"domain": "jimwilsonhomes.com", "business_name": "Jim Wilson (personal) | Keller Williams", "total_violations": 93, "critical": 54, "serious": 1, "teaser": ["A blind visitor hears nothing where your images are — found 50 times on your site", "A blind visitor can't tell what your buttons do — found 4 times on your site", "A blind visitor can't tell where your links go — found 1 time on your site"]}, "jmhhvac.com": {"domain": "jmhhvac.com", "business_name": "Heating and Cooling Services | JMH Heating &Amp; Cooling", "total_violations": 18, "critical": 1, "serious": 8, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 6 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site"]}, "jobsonroofing.com": {"domain": "jobsonroofing.com", "business_name": "Grand Rapids Residential Roofing - Jobson Roofing", "total_violations": 34, "critical": 0, "serious": 8, "teaser": ["Visitors with low vision can't read your text — found 5 times on your site", "A blind visitor can't tell where your links go — found 3 times on your site", "A blind visitor can't jump to sections of your page — found 20 times on your site"]}, "journeylaw.com": {"domain": "journeylaw.com", "business_name": "Journey Law | Estate Planning, Probate, & Mediation in Grand Rapids", "total_violations": 2, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader gets trapped in your controls — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "keelerelectric.net": {"domain": "keelerelectric.net", "business_name": "Keeler Electric Inc. | Professional Electricians in Berks County, PA", "total_violations": 24, "critical": 6, "serious": 10, "teaser": ["A blind visitor hears nothing where your images are — found 5 times on your site", "A blind visitor can't tell what your buttons do — found 1 time on your site", "Visitors with low vision can't read your text — found 7 times on your site"]}, "kellermeierphc.com": {"domain": "kellermeierphc.com", "business_name": "Kellermeier | West Michigan Plumbing, Heating & Cooling", "total_violations": 38, "critical": 0, "serious": 24, "teaser": ["Visitors with low vision can't read your text — found 13 times on your site", "A blind visitor can't tell where your links go — found 11 times on your site", "A blind visitor can't jump to sections of your page — found 10 times on your site"]}, "kellermeierplumbing.com": {"domain": "kellermeierplumbing.com", "business_name": "Kellermeier | West Michigan Plumbing, Heating & Cooling", "total_violations": 36, "critical": 0, "serious": 24, "teaser": ["Visitors with low vision can't read your text — found 13 times on your site", "A blind visitor can't tell where your links go — found 11 times on your site", "A blind visitor can't jump to sections of your page — found 9 times on your site"]}, "kfdsmile.com": {"domain": "kfdsmile.com", "business_name": "Kentwood Family Dentistry - Ryan Hartley DMD", "total_violations": 20, "critical": 0, "serious": 19, "teaser": ["A blind visitor can't tell where your links go — found 7 times on your site", "A keyboard-only visitor gets lost on your page — found 7 times on your site", "Elements must only use permitted ARIA attributes — found 5 times on your site"]}, "khloemaebridal.com": {"domain": "khloemaebridal.com", "business_name": "Khloe Mae Bridal | Luxury Wedding Dresses & Bridal Gowns", "total_violations": 11, "critical": 0, "serious": 9, "teaser": ["Visitors with low vision can't read your text — found 9 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site", "Visitors who need to zoom can't — found 1 time on your site"]}, "klierchiro.com": {"domain": "klierchiro.com", "business_name": "Klier Chiropractic | Affordable and Exceptional Care", "total_violations": 24, "critical": 0, "serious": 21, "teaser": ["Visitors with low vision can't read your text — found 20 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site", "Banner landmark should not be contained in another landmark — found 1 time on your site"]}, "koetsiers.com": {"domain": "koetsiers.com", "business_name": "Koetsier's Greenhouse - Home Current - Koetsier's Greenhouse", "total_violations": 15, "critical": 0, "serious": 7, "teaser": ["Visitors with low vision can't read your text — found 6 times on your site", "A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 4 times on your site"]}, "krokgr.com": {"domain": "krokgr.com", "business_name": "K-Rok Korean BBQ and Karaoke Bar and Grill - Grand Rapids, MI", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "krupplaw.com": {"domain": "krupplaw.com", "business_name": "Grand Rapids Divorce Lawyer | Grand Rapids Family Law Attorney - Krupp Law Offices PC", "total_violations": 7, "critical": 0, "serious": 6, "teaser": ["Visitors with low vision can't read your text — found 6 times on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "lawestmi.org": {"domain": "lawestmi.org", "business_name": "Home | Legal Aid of Western Michigan | Law Firm | Legal Advice", "total_violations": 68, "critical": 15, "serious": 40, "teaser": ["A blind visitor hears nothing where your images are — found 15 times on your site", "Visitors with low vision can't read your text — found 26 times on your site", "A blind visitor can't tell where your links go — found 14 times on your site"]}, "leosrestaurant.com": {"domain": "leosrestaurant.com", "business_name": "Leo's Seafood Restaurant & Bar - Grand Rapids, Michigan", "total_violations": 53, "critical": 5, "serious": 43, "teaser": ["A blind visitor hears nothing where your images are — found 5 times on your site", "Visitors with low vision can't read your text — found 37 times on your site", "A blind visitor can't tell where your links go — found 6 times on your site"]}, "lightstonelaw.com": {"domain": "lightstonelaw.com", "business_name": "Grand Rapids Business & Estate Attorneys | LightStone Law", "total_violations": 2, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't tell your page sections apart — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "lucashowardgroup.com": {"domain": "lucashowardgroup.com", "business_name": "The Lucas Howard Group", "total_violations": 16, "critical": 3, "serious": 11, "teaser": ["A blind visitor hears nothing where your images are — found 3 times on your site", "A blind visitor can't tell where your links go — found 9 times on your site", "Visitors with low vision can't read your text — found 1 time on your site"]}, "madcapcoffee.com": {"domain": "madcapcoffee.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "mangoroofingllc.com": {"domain": "mangoroofingllc.com", "business_name": "Grand Rapids Roofing | Top Michigan Roofing Company | Mango Roofing & Exteriors", "total_violations": 9, "critical": 0, "serious": 7, "teaser": ["Visitors with low vision can't read your text — found 7 times on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site", "A blind visitor hits empty headings that say nothing — found 1 time on your site"]}, "marketgr.com": {"domain": "marketgr.com", "business_name": "Grand Rapids, MI Realtors & Real Estate Agents | May Group Realtors", "total_violations": 6, "critical": 0, "serious": 3, "teaser": ["Elements must only use permitted ARIA attributes — found 2 times on your site", "Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 3 times on your site"]}, "marusushi.com": {"domain": "marusushi.com", "business_name": "Maru Sushi | Sushi & Japanese Dining Across Michigan", "total_violations": 4, "critical": 0, "serious": 2, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "mcdonaldplumbing.com": {"domain": "mcdonaldplumbing.com", "business_name": "McDonald Plumbing – Residential and Commercial Plumbing Contractors", "total_violations": 28, "critical": 0, "serious": 1, "teaser": ["A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 23 times on your site", "A blind visitor can't navigate your page by headings — found 4 times on your site"]}, "mexogr.com": {"domain": "mexogr.com", "business_name": "Best Mexican Food in Grand Rapids, MI | MeXo Tequila & Mezcal Bar and Restaurant | Mexican Food near me", "total_violations": 1, "critical": 0, "serious": 1, "teaser": ["Scrollable region must have keyboard access — found 1 time on your site"]}, "michaelruiz.consulting": {"domain": "michaelruiz.consulting", "business_name": "Michael Ruiz Consulting | Concierge Web, AI & Business Technology Agency", "total_violations": 1, "critical": 0, "serious": 1, "teaser": ["Elements must have their visible text as part of their accessible name — found 1 time on your site"]}, "michigan.gov": {"domain": "michigan.gov", "business_name": "LEO - Bureau of Services for Blind Persons", "total_violations": 5, "critical": 0, "serious": 5, "teaser": ["A blind visitor can't tell where your links go — found 4 times on your site", "A keyboard-only visitor gets lost on your page — found 1 time on your site"]}, "microsolved.com": {"domain": "microsolved.com", "business_name": "MicroSolved, Inc. | Rational Cyber Security", "total_violations": 1, "critical": 0, "serious": 1, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site"]}, "mission-bbq.com": {"domain": "mission-bbq.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "mittenbrewing.com": {"domain": "mittenbrewing.com", "business_name": "The Mitten Brewing Co.", "total_violations": 6, "critical": 0, "serious": 4, "teaser": ["Visitors with low vision can't read your text — found 4 times on your site", "A blind visitor can't jump to sections of your page — found 2 times on your site"]}, "mjrlandscape.com": {"domain": "mjrlandscape.com", "business_name": "Grand Rapids Lawn Care: Transforming Your Outdoor Spaces | MJR Landscape", "total_violations": 62, "critical": 1, "serious": 22, "teaser": ["Certain ARIA roles must contain particular children — found 1 time on your site", "Visitors with low vision can't read your text — found 13 times on your site", "A blind visitor can't tell where your links go — found 6 times on your site"]}, "mrplumbergr.com": {"domain": "mrplumbergr.com", "business_name": "Mr Plumber", "total_violations": 35, "critical": 1, "serious": 28, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 21 times on your site", "ARIA commands must have an accessible name — found 3 times on your site"]}, "mudpenny.com": {"domain": "mudpenny.com", "business_name": "MudPenny: Honestly Good Brunch, Dinner, and Coffee", "total_violations": 5, "critical": 1, "serious": 4, "teaser": ["Certain ARIA roles must contain particular children — found 1 time on your site", "Visitors with low vision can't read your text — found 3 times on your site", "A blind visitor can't tell where your links go — found 1 time on your site"]}, "muse.ai": {"domain": "muse.ai", "business_name": "Page unavailable", "total_violations": 1, "critical": 0, "serious": 0, "teaser": ["Users should be able to zoom and scale the text up to 500% — found 1 time on your site"]}, "mvpsportsclubs.com": {"domain": "mvpsportsclubs.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "mycityhl.com": {"domain": "mycityhl.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "nctny.com": {"domain": "nctny.com", "business_name": "IT Support Company Serving NY & NJ | NetConnect", "total_violations": 47, "critical": 0, "serious": 9, "teaser": ["Visitors with low vision can't read your text — found 8 times on your site", "Elements must have their visible text as part of their accessible name — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 36 times on your site"]}, "needsomeplumbing.com": {"domain": "needsomeplumbing.com", "business_name": "Grand Rapids Residential & Commercial Plumber | NSP Plumbing", "total_violations": 82, "critical": 0, "serious": 79, "teaser": ["Visitors with low vision can't read your text — found 78 times on your site", "Elements must have their visible text as part of their accessible name — found 1 time on your site", "Main landmark should not be contained in another landmark — found 1 time on your site"]}, "newculture.co": {"domain": "newculture.co", "business_name": "NewCulture: SEO, Digital Marketing & AI for Small Business, Nonprofits & Churches", "total_violations": 8, "critical": 0, "serious": 8, "teaser": ["Visitors with low vision can't read your text — found 7 times on your site", "Links must be distinguishable without relying on color — found 1 time on your site"]}, "nfmplumbing.com": {"domain": "nfmplumbing.com", "business_name": "Plumber in Cape Coral, Fort Myers & North Fort Myers | NFM Plumbing", "total_violations": 9, "critical": 0, "serious": 9, "teaser": ["Visitors with low vision can't read your text — found 7 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site", "Elements must have their visible text as part of their accessible name — found 1 time on your site"]}, "northpointefamilydental.com": {"domain": "northpointefamilydental.com", "business_name": "Grand Rapids Dentist | Digital Implant Dentist Grand Rapids, MI", "total_violations": 25, "critical": 1, "serious": 17, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 14 times on your site", "A blind visitor can't tell where your links go — found 2 times on your site"]}, "nylaandental.com": {"domain": "nylaandental.com", "business_name": "403 Forbidden", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "omsaofwm.com": {"domain": "omsaofwm.com", "business_name": "Oral Surgery Grand Rapids MI | Oral Surgeon Grand Rapids", "total_violations": 7, "critical": 0, "serious": 6, "teaser": ["Visitors with low vision can't read your text — found 4 times on your site", "Links must be distinguishable without relying on color — found 2 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "ontrackhvacmi.com": {"domain": "ontrackhvacmi.com", "business_name": "HVAC Company in Wyoming MI | On Track HVAC", "total_violations": 70, "critical": 0, "serious": 69, "teaser": ["Visitors with low vision can't read your text — found 69 times on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "oppenhuizen.com": {"domain": "oppenhuizen.com", "business_name": "Grand Rapids Intellectual Property Attorney | Oppenhuizen", "total_violations": 18, "critical": 8, "serious": 6, "teaser": ["A blind visitor hears nothing where your images are — found 8 times on your site", "Links must be distinguishable without relying on color — found 4 times on your site", "Visitors with low vision can't read your text — found 1 time on your site"]}, "parshallpestcontrol.com": {"domain": "parshallpestcontrol.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "pdroofme.com": {"domain": "pdroofme.com", "business_name": "P D Roofing: 4.8★ Detroit Roofing Contractor | Free Estimates", "total_violations": 24, "critical": 0, "serious": 24, "teaser": ["Visitors with low vision can't read your text — found 17 times on your site", "Elements must only use permitted ARIA attributes — found 6 times on your site", "Elements must have their visible text as part of their accessible name — found 1 time on your site"]}, "pestxmichigan.com": {"domain": "pestxmichigan.com", "business_name": "HOME | Pestxmichigan.com", "total_violations": 19, "critical": 0, "serious": 4, "teaser": ["Visitors with low vision can't read your text — found 4 times on your site", "A blind visitor can't jump to sections of your page — found 10 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site"]}, "pietrosgr.com": {"domain": "pietrosgr.com", "business_name": "Italian Food, Pizza Restaurant, Catering Services | Grand Rapids, MI | Pietro's Italian Restaurant", "total_violations": 34, "critical": 3, "serious": 7, "teaser": ["A blind visitor hears nothing where your images are — found 3 times on your site", "A blind visitor can't tell where your links go — found 6 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site"]}, "pindindiancuisinegr.com": {"domain": "pindindiancuisinegr.com", "business_name": "Best Indian Food in Grand Rapids, MI | Pind Indian Cuisine | Indian Food near me", "total_violations": 0, "critical": 0, "serious": 0, "teaser": []}, "pinskysmith.com": {"domain": "pinskysmith.com", "business_name": "Home | Pinsky Smith", "total_violations": 43, "critical": 0, "serious": 37, "teaser": ["Visitors with low vision can't read your text — found 35 times on your site", "A blind visitor can't tell where your links go — found 2 times on your site", "A blind visitor can't navigate your page by headings — found 4 times on your site"]}, "pivotpointsecurity.com": {"domain": "pivotpointsecurity.com", "business_name": "CBIZ Pivot Point Security | Cybersecurity Consultants", "total_violations": 9, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't jump to sections of your page — found 8 times on your site", "Visitors who need to zoom can't — found 1 time on your site"]}, "plumbingservicesneargrandrapids.com": {"domain": "plumbingservicesneargrandrapids.com", "business_name": "Responsive Plumbers: Fast Plumbing Services Near Grand Rapids MI", "total_violations": 106, "critical": 0, "serious": 20, "teaser": ["Visitors with low vision can't read your text — found 20 times on your site", "A blind visitor can't jump to sections of your page — found 83 times on your site", "A blind visitor can't navigate your page by headings — found 3 times on your site"]}, "plunkettcooney.com": {"domain": "plunkettcooney.com", "business_name": "Plunkett Cooney - Grand Rapids, Michigan - Attorneys & Counselors at Law: business law and litigation defense services", "total_violations": 2, "critical": 0, "serious": 1, "teaser": ["A blind visitor can't tell what your embedded content is — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "pohlonskirealestate.com": {"domain": "pohlonskirealestate.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "premierfamilyeyes.com": {"domain": "premierfamilyeyes.com", "business_name": "Eye Doctor in Grand Rapids, MI | Premier Family Eye Care", "total_violations": 52, "critical": 2, "serious": 11, "teaser": ["ARIA attributes must conform to valid values — found 1 time on your site", "A blind visitor hears nothing where your images are — found 1 time on your site", "A blind visitor can't tell where your links go — found 8 times on your site"]}, "primeroofingmi.com": {"domain": "primeroofingmi.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "protechgr.com": {"domain": "protechgr.com", "business_name": "HVAC Repair & Installation in Grand Rapids, MI | Pro-Tech", "total_violations": 4, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't jump to sections of your page — found 4 times on your site"]}, "realfoodcafe.com": {"domain": "realfoodcafe.com", "business_name": "Real Food Cafe | Grand Rapids Breakfast Diner", "total_violations": 11, "critical": 0, "serious": 7, "teaser": ["Visitors with low vision can't read your text — found 5 times on your site", "A blind visitor can't tell where your links go — found 2 times on your site", "A blind visitor can't navigate your page by headings — found 2 times on your site"]}, "renewdentalgr.com": {"domain": "renewdentalgr.com", "business_name": "Dentist | Dental Services | Dentist Grand Rapids | Renew Dental", "total_violations": 23, "critical": 0, "serious": 22, "teaser": ["Visitors with low vision can't read your text — found 18 times on your site", "A blind visitor can't tell where your links go — found 4 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "risewellnesschiro.com": {"domain": "risewellnesschiro.com", "business_name": "Pediatric Chiropractic | Grand Rapids | Rise Wellness Chiropractic", "total_violations": 8, "critical": 0, "serious": 8, "teaser": ["Visitors with low vision can't read your text — found 8 times on your site"]}, "rivertowndental.com": {"domain": "rivertowndental.com", "business_name": "Rivertown Dental | Family Dentistry for Grandville and the Greater Grand Rapids Area", "total_violations": 2, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't navigate your page by headings — found 1 time on your site", "Visitors who need to zoom can't — found 1 time on your site"]}, "roambysanchez.com": {"domain": "roambysanchez.com", "business_name": "Global Street Food - ROAM By San Chez", "total_violations": 9, "critical": 1, "serious": 8, "teaser": ["A blind visitor can't use your dropdown menus — found 1 time on your site", "Visitors with low vision can't read your text — found 7 times on your site", "ARIA commands must have an accessible name — found 1 time on your site"]}, "rrmechanicalsvs.com": {"domain": "rrmechanicalsvs.com", "business_name": "AC, Furnace, And Indoor Air Quality Services Grand Rapids MI", "total_violations": 140, "critical": 1, "serious": 24, "teaser": ["Elements must only use supported ARIA attributes — found 1 time on your site", "Visitors with low vision can't read your text — found 16 times on your site", "Elements must have their visible text as part of their accessible name — found 3 times on your site"]}, "rrrlawn.com": {"domain": "rrrlawn.com", "business_name": "Grand Rapids Landscape Design & Hardscaping | RRR Lawn", "total_violations": 201, "critical": 0, "serious": 72, "teaser": ["Visitors with low vision can't read your text — found 71 times on your site", "Scrollable region must have keyboard access — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 125 times on your site"]}, "russellgr.com": {"domain": "russellgr.com", "business_name": "The Russell Law Firm | West Michigan's Most Trusted Law Firm", "total_violations": 9, "critical": 0, "serious": 7, "teaser": ["Visitors with low vision can't read your text — found 6 times on your site", "A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "sawyerlawoffices.com": {"domain": "sawyerlawoffices.com", "business_name": "Best Lawyer in Grand Rapids Michigan - Sawyer Law Offices", "total_violations": 7, "critical": 0, "serious": 6, "teaser": ["Visitors with low vision can't read your text — found 6 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "schmittsanimalhospital.com": {"domain": "schmittsanimalhospital.com", "business_name": "403 Forbidden", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "schulerbooks.com": {"domain": "schulerbooks.com", "business_name": "Home Page | Schuler Books", "total_violations": 14, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't jump to sections of your page — found 9 times on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site", "ARIA role should be appropriate for the element — found 4 times on your site"]}, "seeitclear.com": {"domain": "seeitclear.com", "business_name": "Eye Doctors in Grand Rapids, MI | Grand Rapids Ophthalmology", "total_violations": 69, "critical": 0, "serious": 14, "teaser": ["Elements must only use permitted ARIA attributes — found 14 times on your site", "A blind visitor can't jump to sections of your page — found 54 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "soltdental.com": {"domain": "soltdental.com", "business_name": "Solt Family Dental | Trusted Family Dentist in Wyoming, MI", "total_violations": 79, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't jump to sections of your page — found 76 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't find the main heading of your page — found 1 time on your site"]}, "steeleandsonsplumbing.com": {"domain": "steeleandsonsplumbing.com", "business_name": "Steele & Sons Plumbing | Plumber in Grand Rapids, MI | 24/7 Service", "total_violations": 2, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't navigate your page by headings — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "steenland.com": {"domain": "steenland.com", "business_name": "Grand Rapids, MI Insurance Agents | Steenland Insurance Agency, Inc. | Michigan", "total_violations": 20, "critical": 0, "serious": 9, "teaser": ["Elements must have their visible text as part of their accessible name — found 8 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 9 times on your site"]}, "stratifyit.tech": {"domain": "stratifyit.tech", "business_name": "Stratify IT | NYC CMMC Compliance & Managed IT Services", "total_violations": 2, "critical": 0, "serious": 1, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "strengthssp.com": {"domain": "strengthssp.com", "business_name": "StrengthSSP", "total_violations": 4, "critical": 0, "serious": 2, "teaser": ["Visitors with low vision can't read your text — found 2 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "summitpointroofing.com": {"domain": "summitpointroofing.com", "business_name": "Top Roofing Company in Michigan | Summit Point Roofing", "total_violations": 11, "critical": 0, "serious": 6, "teaser": ["Form elements should have a visible label — found 4 times on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site", "A blind visitor can't tell where your links go — found 1 time on your site"]}, "sundancegrill.com": {"domain": "sundancegrill.com", "business_name": "Sundance Bar & Grill | Breakfast, Lunch & Dinner", "total_violations": 9, "critical": 0, "serious": 6, "teaser": ["Visitors with low vision can't read your text — found 5 times on your site", "A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 3 times on your site"]}, "tastebudsconnects.com": {"domain": "tastebudsconnects.com", "business_name": "Taste Buds-Kitchen Connects, LLC - Home", "total_violations": 18, "critical": 1, "serious": 1, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "A blind visitor can't tell what your embedded content is — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 13 times on your site"]}, "techheights.com": {"domain": "techheights.com", "business_name": "Managed IT Services | Southern California | TechHeights", "total_violations": 81, "critical": 0, "serious": 41, "teaser": ["Visitors with low vision can't read your text — found 36 times on your site", "A blind visitor can't tell where your links go — found 4 times on your site", "Form elements should have a visible label — found 1 time on your site"]}, "that1painter.com": {"domain": "that1painter.com", "business_name": "Sell-Ready Services in West Michigan, MI | That 1 Painter", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site", "ARIA role should be appropriate for the element — found 2 times on your site"]}, "thebrowninglawfirm.com": {"domain": "thebrowninglawfirm.com", "business_name": "The Browning Law Firm | Family Law & Criminal Defense in Grand Rapids, MI", "total_violations": 29, "critical": 0, "serious": 20, "teaser": ["Visitors with low vision can't read your text — found 20 times on your site", "A blind visitor can't jump to sections of your page — found 9 times on your site"]}, "thechophouserestaurant.com": {"domain": "thechophouserestaurant.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "thedentalhousegr.com": {"domain": "thedentalhousegr.com", "business_name": "403 Forbidden", "total_violations": 3, "critical": 0, "serious": 1, "teaser": ["A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "thegreenwell.com": {"domain": "thegreenwell.com", "business_name": "Essence Hospitality Group | Restaurants | Grand Rapids, MI", "total_violations": 10, "critical": 0, "serious": 7, "teaser": ["A blind visitor can't tell where your links go — found 7 times on your site", "A blind visitor can't jump to sections of your page — found 2 times on your site", "A blind visitor can't find the main heading of your page — found 1 time on your site"]}, "thepantryada.com": {"domain": "thepantryada.com", "business_name": "The Pantry", "total_violations": 48, "critical": 6, "serious": 12, "teaser": ["A blind visitor can't tell what your buttons do — found 4 times on your site", "Certain ARIA roles must contain particular children — found 2 times on your site", "Visitors with low vision can't read your text — found 6 times on your site"]}, "theparlourgr.com": {"domain": "theparlourgr.com", "business_name": "Grand Rapids Salon: Hair Stylists-Makeup Artists - CityFlatsHotel", "total_violations": 9, "critical": 0, "serious": 6, "teaser": ["Elements must only use permitted ARIA attributes — found 4 times on your site", "ARIA hidden element must not be focusable or contain focusable elements — found 1 time on your site", "Visitors with low vision can't read your text — found 1 time on your site"]}, "theporchman.com": {"domain": "theporchman.com", "business_name": "\"The Porch Man\" | Screen and Glass Porch Installation | Grand Rapids, MI", "total_violations": 2, "critical": 0, "serious": 1, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "timandginatodd.com": {"domain": "timandginatodd.com", "business_name": "", "total_violations": 4, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "tmjandsleepdisordersofmi.com": {"domain": "tmjandsleepdisordersofmi.com", "business_name": "Grand Rapids TMJ Specialists | Michigan", "total_violations": 50, "critical": 7, "serious": 22, "teaser": ["A blind visitor can't tell what your form fields are for — found 5 times on your site", "A blind visitor can't use your dropdown menus — found 2 times on your site", "Visitors with low vision can't read your text — found 19 times on your site"]}, "topgundidit.com": {"domain": "topgundidit.com", "business_name": "Trusted Roofing Contractor in West Michigan | Top Gun", "total_violations": 14, "critical": 0, "serious": 5, "teaser": ["Visitors with low vision can't read your text — found 5 times on your site", "A blind visitor can't navigate your page by headings — found 9 times on your site"]}, "tpcgrandrapids.com": {"domain": "tpcgrandrapids.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "trinitychirogr.com": {"domain": "trinitychirogr.com", "business_name": "Trinity Chiropractic | Family Chiropractor | Grand Rapids, MI", "total_violations": 10, "critical": 0, "serious": 9, "teaser": ["Visitors with low vision can't read your text — found 9 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "trknechtlaw.wixsite.com": {"domain": "trknechtlaw.wixsite.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "trustrestaurantgr.com": {"domain": "trustrestaurantgr.com", "business_name": "Enter Here - Trust Restaurant", "total_violations": 3, "critical": 0, "serious": 2, "teaser": ["Visitors with low vision can't read your text — found 1 time on your site", "A blind visitor can't tell where your links go — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "turbohomeservices.com": {"domain": "turbohomeservices.com", "business_name": "Houston AC Repair, Heating & Plumbing | Turbo Home Services", "total_violations": 109, "critical": 0, "serious": 12, "teaser": ["Visitors with low vision can't read your text — found 11 times on your site", "Links must be distinguishable without relying on color — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 93 times on your site"]}, "uccellos.com": {"domain": "uccellos.com", "business_name": "Robot Challenge Screen", "total_violations": 2, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't find the main content of your page — found 1 time on your site", "A blind visitor can't jump to sections of your page — found 1 time on your site"]}, "vanderhyde.com": {"domain": "vanderhyde.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "vanharendentistry.com": {"domain": "vanharendentistry.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "vant-hof.com": {"domain": "vant-hof.com", "business_name": "Van't Hof Door and Gate Systems", "total_violations": 42, "critical": 12, "serious": 20, "teaser": ["A blind visitor hears nothing where your images are — found 9 times on your site", "A blind visitor can't tell what your form fields are for — found 3 times on your site", "Visitors with low vision can't read your text — found 16 times on your site"]}, "vibrantlifegr.com": {"domain": "vibrantlifegr.com", "business_name": "Vibrant Life Chiropractic | Grand Rapids chiropractor | Dr. Kurt and Kelly Lang", "total_violations": 40, "critical": 1, "serious": 11, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 6 times on your site", "A blind visitor can't tell where your links go — found 5 times on your site"]}, "vinxpestcontrol.com": {"domain": "vinxpestcontrol.com", "business_name": "Vinx Pest Control | The Pest Control Experts Who Care", "total_violations": 41, "critical": 0, "serious": 34, "teaser": ["Visitors with low vision can't read your text — found 33 times on your site", "Form elements should have a visible label — found 1 time on your site", "Alternative text of images should not be repeated as text — found 7 times on your site"]}, "waymaker-pt.com": {"domain": "waymaker-pt.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "wellnesstheorymi.com": {"domain": "wellnesstheorymi.com", "business_name": "Grand Rapids MedSpa | Botox, Filler & Facials | Wellness Theory", "total_violations": 13, "critical": 0, "serious": 12, "teaser": ["Visitors with low vision can't read your text — found 12 times on your site", "A blind visitor can't tell your page sections apart — found 1 time on your site"]}, "westmichiganins.com": {"domain": "westmichiganins.com", "business_name": "Insurance Agency in Grand Rapids MI | West Michigan Insurance", "total_violations": 17, "critical": 1, "serious": 7, "teaser": ["A blind visitor hears nothing where your images are — found 1 time on your site", "Visitors with low vision can't read your text — found 7 times on your site", "A blind visitor can't jump to sections of your page — found 9 times on your site"]}, "westmichiganmovingcompany.com": {"domain": "westmichiganmovingcompany.com", "business_name": "West Michigan Moving Company | Expert Moving in Grand Rapids", "total_violations": 16, "critical": 0, "serious": 14, "teaser": ["Visitors with low vision can't read your text — found 13 times on your site", "Links must be distinguishable without relying on color — found 1 time on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "westmiperio.com": {"domain": "westmiperio.com", "business_name": "West Michigan Periodontics | Dr. Brian Cilla, DDS, MS", "total_violations": 13, "critical": 0, "serious": 13, "teaser": ["Elements must have their visible text as part of their accessible name — found 13 times on your site"]}, "westsidedentalgr.com": {"domain": "westsidedentalgr.com", "business_name": "", "total_violations": 5, "critical": 0, "serious": 2, "teaser": ["A blind visitor can't tell what page they're on — found 1 time on your site", "A blind visitor's screen reader may pronounce everything wrong — found 1 time on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}, "wholeheartedvetcare.com": {"domain": "wholeheartedvetcare.com", "business_name": "Best Vet Hosp In Grand Rapids | Wholehearted Veterinary Care", "total_violations": 40, "critical": 1, "serious": 22, "teaser": ["A blind visitor can't tell what your form fields are for — found 1 time on your site", "Visitors with low vision can't read your text — found 18 times on your site", "A blind visitor can't tell where your links go — found 2 times on your site"]}, "winningsmilesortho.org": {"domain": "winningsmilesortho.org", "business_name": "Winning Smiles Orthodontics Foundation | Orthodontist Grand Rapids Muskegon MI", "total_violations": 15, "critical": 0, "serious": 5, "teaser": ["Visitors with low vision can't read your text — found 5 times on your site", "A blind visitor can't jump to sections of your page — found 7 times on your site", "A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "wirewizardselectricalllc.com": {"domain": "wirewizardselectricalllc.com", "business_name": "Top Electrician in Grand Rapids | Wire Wizards Electrical Repair", "total_violations": 1, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't navigate your page by headings — found 1 time on your site"]}, "woodmeadowdentistry.com": {"domain": "woodmeadowdentistry.com", "business_name": "Woodmeadow Dentistry | Dentist in Grand Rapids, MI", "total_violations": 15, "critical": 0, "serious": 0, "teaser": ["A blind visitor can't navigate your page by headings — found 12 times on your site", "A blind visitor can't jump to sections of your page — found 2 times on your site", "A blind visitor hits empty headings that say nothing — found 1 time on your site"]}, "wuattorneys.com": {"domain": "wuattorneys.com", "business_name": "HOME - Wheeler Upham", "total_violations": 13, "critical": 0, "serious": 7, "teaser": ["Visitors with low vision can't read your text — found 7 times on your site", "A blind visitor can't navigate your page by headings — found 3 times on your site", "A blind visitor can't find the main content of your page — found 1 time on your site"]}};
+document.getElementById('domain-input').addEventListener('input', function () {
+  var inputEl = document.getElementById('domain-input');
+  var errorEl = document.getElementById('domain-error');
+  inputEl.removeAttribute('aria-invalid');
+  errorEl.textContent = '';
+  errorEl.hidden = true;
+});
+document.getElementById('lookup-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var input = document.getElementById('domain-input');
+  var error = document.getElementById('domain-error');
+  var raw = input.value.trim().toLowerCase();
+  var domain = raw.replace(/^https?:\/\//, '').replace(/^www\./, '').split('/')[0];
+  var result = document.getElementById('lookup-result');
+  result.innerHTML = '';
+  if (!domain) {
+    input.setAttribute('aria-invalid', 'true');
+    error.textContent = 'Error: please enter your website address, for example yourbusiness.com.';
+    error.hidden = false;
+    input.focus();
+    return;
+  }
+  input.removeAttribute('aria-invalid');
+  error.textContent = '';
+  error.hidden = true;
+  var hit = LOOKUP[domain];
+  if (hit) {
+    var p = document.createElement('p');
+    p.textContent = 'We scanned ' + domain + ': ' + hit.total_violations + ' barriers found, ' +
+      hit.critical + ' critical, ' + hit.serious + ' serious.';
+    result.appendChild(p);
+    if (hit.teaser && hit.teaser.length) {
+      var h = document.createElement('p');
+      h.textContent = 'Your first page of findings, free \u2014 the top barriers on the page we scanned:';
+      result.appendChild(h);
+      var ul = document.createElement('ul');
+      hit.teaser.forEach(function (line) {
+        var li = document.createElement('li');
+        li.textContent = line;
+        ul.appendChild(li);
+      });
+      result.appendChild(ul);
+      var rest = document.createElement('p');
+      rest.textContent = 'That is the first page. The full scan of your whole site, repeated every month, is the $9.99 monthly watch. ' +
+        'The $299 Blind Task-Completion Verification \u2014 a hands-on screen-reader check of your key tasks \u2014 is credited in full toward the $499 audit.';
+      result.appendChild(rest);
+    } else {
+      var clean = document.createElement('p');
+      clean.textContent = 'Our automated scan of the page we checked found no barriers. That is a good start, not a guarantee \u2014 ' +
+        'automated scans catch only a fraction of real barriers. The $299 Blind Task-Completion Verification checks your key tasks by hand, with a screen reader, ' +
+        'and is credited in full toward the $499 audit.';
+      result.appendChild(clean);
+    }
+  } else {
+    result.textContent = "We haven't scanned that one yet \u2014 request your free scan below.";
+  }
+});
+  </script>
+</body>
+</html>
