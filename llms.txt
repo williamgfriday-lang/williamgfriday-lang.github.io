@@ -1,0 +1,25 @@
+# Braille Bridges LLC
+
+> Braille Bridges LLC is a blind-led digital accessibility company in Grand Rapids, Michigan, founded by William Friday, a legally blind accessibility specialist. It audits business websites for the barriers that stop blind and low-vision customers, using automated scanning plus hands-on screen-reader verification by a blind specialist.
+
+## Services
+
+- Free first-page accessibility findings: a no-cost look at the barriers on a business's homepage.
+- Whole-site accessibility watch ($9.99/month): a full machine scan of the site every month with a plain-language report of every barrier found. The watch lists the fixes; it does not make them.
+- Human verification ($299): a blind specialist walks the site's critical paths by hand with a screen reader — up to about 25 pages — and verifies the barriers real customers actually hit, in the order they should be fixed.
+- Full audit ($499): the whole site, every page, a deeper pass — built for businesses already facing legal pressure over accessibility.
+
+## Why Braille Bridges
+
+- Blind-led: the verification is done by a blind specialist using a screen reader the way blind customers do — not simulated.
+- Every finding is counted and named in plain language, with proof.
+- Accessibility is revenue: a blind customer who cannot check out is a sale the business never sees.
+- Prices are published. No "talk to an expert" wall: the human verification is $299, in the open.
+
+## Contact
+
+- William Friday, Founder, Braille Bridges LLC
+- Grand Rapids, Michigan
+- Phone: (616) 349-8187
+- Email: williamgfriday@gmail.com
+- Web: https://braillebridges.com
