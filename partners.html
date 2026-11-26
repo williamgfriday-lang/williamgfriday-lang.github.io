@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>For Web Designers & Agencies — Braille Bridges LLC</title>
+  <meta name="description" content="You build the site. A blind specialist verifies it. Bundle Braille Bridges' $299 Human Verification into your builds at the published price — and hand your client an independent verification record." />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #ffd700;
+      --ink: #111111;
+      --line: #111111;
+      --measure: 74rem;
+      --reading: 48rem;
+      --gutter: clamp(1.25rem, 4vw, 4rem);
+      --section-space: clamp(4rem, 10vw, 8rem);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #ffd700;
+        --ink: #111111;
+        --line: #111111;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      background: var(--page);
+      color: var(--ink);
+      scroll-behavior: smooth;
+      font-size: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: clamp(1.25rem, 1.1rem + 0.45vw, 1.5rem);
+      line-height: 1.58;
+      font-weight: 500;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration-thickness: 0.13em;
+      text-underline-offset: 0.16em;
+    }
+
+    a:hover { text-decoration-thickness: 0.22em; }
+
+    a:focus-visible {
+      outline: 4px solid var(--ink);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.7rem 1rem;
+      border: 3px solid var(--ink);
+      background: var(--page);
+      color: var(--ink);
+      font-weight: 800;
+      transform: translateY(-180%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    header, main, footer { display: block; }
+
+    .section {
+      width: min(100%, var(--measure));
+      margin-inline: auto;
+      padding: var(--section-space) var(--gutter);
+      border-bottom: 3px solid var(--line);
+    }
+
+    .hero {
+      min-height: min(900px, 92vh);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(2.25rem, 6vw, 5rem);
+      padding-top: clamp(4rem, 10vw, 8rem);
+    }
+
+    .hero-copy { max-width: 65rem; }
+
+    .brand-visual {
+      width: min(100%, 48rem);
+      margin: 0 auto;
+    }
+
+    .brand-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 4px solid var(--ink);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 15ch;
+      margin-bottom: 1.6rem;
+      font-size: clamp(3.4rem, 8.8vw, 7.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      font-weight: 900;
+    }
+
+    h2 {
+      max-width: 20ch;
+      margin-bottom: clamp(1.6rem, 4vw, 2.6rem);
+      font-size: clamp(2.35rem, 5.2vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    h3 {
+      margin-bottom: 0.65rem;
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      line-height: 1.18;
+      font-weight: 850;
+    }
+
+    p { margin-bottom: 1.25rem; }
+
+    .lead {
+      max-width: 46rem;
+      margin-bottom: 2rem;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.38;
+      font-weight: 650;
+    }
+
+    .button {
+      display: inline-block;
+      max-width: 100%;
+      padding: 0.9rem 1.15rem;
+      border: 4px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--ink);
+      color: var(--ink);
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height: 1.2;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .button:active {
+      transform: translate(7px, 7px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    .how-title {
+      margin-bottom: 1.4rem;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .steps li {
+      position: relative;
+      padding: 1.5rem 1.4rem 1.6rem 4.4rem;
+    }
+
+    .steps li + li { border-left: 3px solid var(--ink); }
+
+    .step-number {
+      position: absolute;
+      top: 1.3rem;
+      left: 1.25rem;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .steps p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .reading { max-width: var(--reading); }
+
+    .plain-list, .offer-list, .included-list, .credentials {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plain-list li, .credentials li {
+      position: relative;
+      padding: 1.15rem 0 1.15rem 2rem;
+      border-top: 2px solid var(--ink);
+    }
+
+    .plain-list li::before, .credentials li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      top: 1.13rem;
+      font-weight: 900;
+    }
+
+    .plain-list li:last-child, .credentials li:last-child { border-bottom: 2px solid var(--ink); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+      gap: clamp(2.5rem, 7vw, 6rem);
+      align-items: start;
+    }
+
+    .credentials { font-size: 1.05rem; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3px;
+      margin-bottom: 2.5rem;
+      background: var(--ink);
+      border: 3px solid var(--ink);
+    }
+
+    .offer {
+      min-width: 0;
+      padding: clamp(1.5rem, 4vw, 2.6rem);
+      background: var(--page);
+    }
+
+    .price {
+      margin-bottom: 1.4rem;
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .price small {
+      display: block;
+      margin-top: 0.55rem;
+      font-size: 1rem;
+      line-height: 1.35;
+      letter-spacing: 0;
+      font-weight: 750;
+    }
+
+    .offer-list { font-size: 1.05rem; }
+
+    .offer-list li {
+      padding: 0.65rem 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    .offer-list li:last-child { border-bottom: 2px solid var(--ink); }
+
+    .price-context {
+      max-width: 58rem;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
+      line-height: 1.5;
+    }
+
+    .honest-note {
+      max-width: 58rem;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      padding: 1.35rem 1.5rem;
+      border: 3px solid var(--ink);
+      font-weight: 750;
+    }
+
+    .widget-callout {
+      max-width: 58rem;
+      margin-top: 2rem;
+      margin-bottom: 0;
+      padding: 1.6rem 1.75rem;
+      border: 4px solid var(--ink);
+      background: var(--ink);
+      color: var(--page);
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      line-height: 1.35;
+      font-weight: 850;
+    }
+
+    .included-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3px;
+      background: var(--ink);
+      border: 3px solid var(--ink);
+      counter-reset: included;
+    }
+
+    .included-list li {
+      counter-increment: included;
+      padding: 1.5rem;
+      background: var(--page);
+      font-size: 1.08rem;
+    }
+
+    .included-list li::before {
+      content: "0" counter(included);
+      display: block;
+      margin-bottom: 1.2rem;
+      font-size: 1.65rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .email-fallback {
+      margin-top: 1.75rem;
+      margin-bottom: 0;
+    }
+
+    .index-link {
+      margin-top: 1.75rem;
+      margin-bottom: 0;
+      font-size: 1.15rem;
+      font-weight: 750;
+    }
+
+    .debt-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3px;
+      margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+      padding: 0;
+      list-style: none;
+      background: var(--ink);
+      border: 3px solid var(--ink);
+    }
+
+    .debt-stats li {
+      padding: 1.6rem 1.5rem 1.75rem;
+      background: var(--ink);
+      color: var(--page);
+      font-size: 1.15rem;
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .debt-stats strong {
+      display: block;
+      margin-bottom: 0.9rem;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+    }
+
+    .debt-subhead {
+      margin-bottom: 1.2rem;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+    }
+
+    .barrier-list {
+      margin: 0 0 clamp(2.5rem, 6vw, 4rem);
+      padding: 0;
+      list-style: none;
+      counter-reset: barrier;
+    }
+
+    .barrier-list li {
+      counter-increment: barrier;
+      position: relative;
+      padding: 1.4rem 0 1.4rem 4.4rem;
+      border-top: 2px solid var(--ink);
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    .barrier-list li:last-child { border-bottom: 2px solid var(--ink); }
+
+    .barrier-list li::before {
+      content: counter(barrier);
+      position: absolute;
+      top: 1.15rem;
+      left: 0.4rem;
+      font-size: 2.1rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .barrier-list strong { font-weight: 900; }
+
+    .debt-meaning { max-width: var(--reading); }
+
+    .debt-footer {
+      max-width: 58rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0;
+      padding: 1.35rem 1.5rem;
+      border: 3px solid var(--ink);
+      font-size: 1.05rem;
+      font-weight: 650;
+    }
+
+    .proof-briefs {
+      max-width: var(--reading);
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .proof-article {
+      padding: 1.5rem 0 0.25rem;
+      border-top: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .proof-article h4 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: clamp(1.3rem, 2vw, 1.6rem);
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .proof-article p:last-child { margin-bottom: 1.25rem; }
+
+    .lookup-form { margin-bottom: 0.5rem; }
+
+    .lookup-form label {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-weight: 800;
+    }
+
+    .lookup-form input {
+      display: block;
+      width: 100%;
+      max-width: 32rem;
+      padding: 0.85rem 1rem;
+      border: 3px solid var(--ink);
+      background: #ffffff;
+      color: #111111;
+      font: inherit;
+      font-weight: 600;
+    }
+
+    .lookup-form input:focus-visible {
+      outline: 4px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .lookup-form input[aria-invalid="true"] {
+      border-color: #b3001b;
+    }
+
+    .lookup-error {
+      max-width: 32rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0;
+      color: #b3001b;
+      font-weight: 700;
+    }
+
+    .lookup-error[hidden] {
+      display: none;
+    }
+
+    .lookup-form button {
+      margin-top: 1.25rem;
+      background: var(--page);
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .lookup-result {
+      max-width: var(--reading);
+      margin-top: 1.75rem;
+      margin-bottom: 0;
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      line-height: 1.45;
+      font-weight: 750;
+    }
+
+    .lookup-result:empty { margin-top: 0; }
+
+    .lookup-result p { margin-bottom: 1rem; }
+
+    .lookup-result ul {
+      margin: 0 0 1rem;
+      padding-left: 1.6rem;
+    }
+
+    .figures-note {
+      max-width: var(--reading);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .door-contact {
+      max-width: var(--reading);
+      margin-top: 2rem;
+      margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    .contact {
+      border-bottom: 0;
+      padding-bottom: calc(var(--section-space) + env(safe-area-inset-bottom));
+    }
+
+    address {
+      max-width: var(--reading);
+      font-style: normal;
+      font-size: clamp(1.35rem, 2.7vw, 2rem);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    address p { margin-bottom: 0.9rem; }
+
+    .contact-name {
+      font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .compare-table {
+      width: 100%;
+      max-width: 58rem;
+      border-collapse: collapse;
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    .compare-table caption {
+      margin-bottom: 0.9rem;
+      text-align: left;
+      font-size: 1.15rem;
+      font-weight: 750;
+    }
+
+    .compare-table th, .compare-table td {
+      padding: 0.85rem 1rem;
+      border: 2px solid var(--ink);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .compare-table thead th {
+      background: var(--ink);
+      color: var(--page);
+      font-weight: 850;
+    }
+
+    .compare-table .ours td { font-weight: 850; }
+
+    .faq-list { max-width: var(--reading); }
+
+    .faq-item {
+      padding: 1.4rem 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    .faq-item:last-child { border-bottom: 2px solid var(--ink); }
+
+    .faq-item h3 { margin-bottom: 0.6rem; }
+
+    .faq-item p { margin-bottom: 0; }
+
+    .back-link {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      font-weight: 750;
+    }
+
+    @media (max-width: 760px) {
+      .hero { min-height: auto; }
+      .steps, .pricing-grid, .included-list, .story-grid, .debt-stats { grid-template-columns: 1fr; }
+      .steps li + li { border-left: 0; border-top: 2px solid var(--ink); }
+      .included-list, .pricing-grid { gap: 2px; }
+    }
+
+    @media (max-width: 420px) {
+      h1 { font-size: clamp(3rem, 15vw, 4rem); }
+      .button { width: calc(100% - 8px); text-align: center; }
+      .steps li { padding-left: 3.9rem; }
+      .section { padding-inline: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    @media print {
+      .skip-link { display: none; }
+      .section { max-width: none; padding-block: 2rem; break-inside: avoid; }
+      .hero { min-height: 0; }
+      .button { box-shadow: none; }
+    }
+  
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <main id="main-content" tabindex="-1">
+    <section class="section" aria-labelledby="partners-title">
+      <p class="back-link"><a href="index.html">← Braille Bridges — home</a></p>
+      <h1 id="partners-title" style="font-size: clamp(2.6rem, 6.5vw, 5rem); max-width: 20ch;">You build the site. A blind specialist verifies it.</h1>
+      <p class="lead">For web designers and agencies: bundle Braille Bridges' $299 Human Verification into your builds, and hand your client a finished site plus an independent verification record — the human check your clients' sites currently don't get.</p>
+
+      <h2 class="how-title">How it works</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-number" aria-hidden="true">1</span>
+          <h3>You build or rebuild the site.</h3>
+          <p>Your work, your client, your roof — nothing about that changes.</p>
+        </li>
+        <li>
+          <span class="step-number" aria-hidden="true">2</span>
+          <h3>We verify it.</h3>
+          <p>A blind specialist walks the site's critical paths by hand with a screen reader — up to about 25 pages — and delivers the barrier map: what blocks a real user, where, and what fixing takes.</p>
+        </li>
+        <li>
+          <span class="step-number" aria-hidden="true">3</span>
+          <h3>Your client gets the record.</h3>
+          <p>A finished site plus evidence that a person checked it — the two things a machine scan alone can't give them.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" aria-labelledby="offer-title">
+      <h2 id="offer-title">The offer</h2>
+      <ul class="plain-list">
+        <li><strong>Built-in:</strong> the verification rides inside your build or redesign package as a line item, at the published $299.</li>
+        <li><strong>Add-on:</strong> offer it by name at delivery, or at your client's annual site review — same published $299.</li>
+        <li><strong>The door-opener is free:</strong> offer any prospect a free first-page scan under the Braille Bridges name before a build is even quoted. A prospect who has seen their own barrier count is a warmer conversation than one who hasn't.</li>
+        <li><strong>After verification:</strong> your client can keep the site watched month to month with the $9.99 Watch, direct with Braille Bridges — a monthly scan and findings report, so the verified site stays verified as it changes.</li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="partner-gets-title">
+      <h2 id="partner-gets-title">What you get</h2>
+      <ul class="plain-list">
+        <li><strong>A capability you don't have:</strong> genuine human verification by a blind specialist — not a widget, not a scan report with your logo on it. Most of your competitors offer the machine layer only.</li>
+        <li><strong>An evidence record for your client:</strong> proof a person checked the critical paths — the thing regulators have established a scan alone is not.</li>
+        <li><strong>A published price to point at:</strong> $299, on our page, no "talk to an expert," no quote process. You never have to defend a mystery number to your client.</li>
+        <li><strong>Room to earn on the work around it:</strong> the verification stays $299 — and fixing the barriers the map finds is your trade, and the bigger job. We don't do that work and don't compete for it.</li>
+        <li><strong>A claim almost no small agency can make:</strong> "our sites are verified by a blind specialist." Almost none can say it today, because almost none has the specialist.</li>
+      </ul>
+      <p class="honest-note"><strong>The price is the price.</strong> Free scan, $9.99/month Watch, $299 Verification, $499 Full Audit — the same published ladder in the partner channel as everywhere else. No partner-only pricing, no hidden tier. The published price is the trust signal, and it stays clean.</p>
+    </section>
+
+    <section class="section" aria-labelledby="partner-start-title">
+      <h2 id="partner-start-title">Start the conversation</h2>
+      <p class="reading">No program to join, no portal to learn. Call or write, tell us about the sites you build, and we'll walk the first one through together.</p>
+      <p class="reading">Call <a href="tel:+16163498187">(616) 349-8187</a> · Email <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a></p>
+      <p class="index-link">See the work itself: <a href="verification.html">how human verification works</a> · <a href="what-a-scan-misses.html">what a machine scan catches — and what it misses</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <section class="section contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <address>
+        <p class="contact-name">William Friday, Founder — Braille Bridges LLC</p>
+        <p>Grand Rapids, Michigan</p>
+        <p>Phone: <a href="tel:+16163498187">616-349-8187</a></p>
+        <p>Email: <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a></p>
+        <p>Accessibility: <a href="accessibility-statement.html">Our accessibility statement</a></p>
+      </address>
+    </section>
+  </footer>
+</body>
+</html>

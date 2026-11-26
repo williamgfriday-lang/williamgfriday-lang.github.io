@@ -13,6 +13,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Braille Bridges LLC",
+      "url": "https://braillebridges.com",
       "telephone": "+1-616-349-8187",
       "email": "williamgfriday@gmail.com",
       "address": {
@@ -21,8 +22,100 @@
         "addressRegion": "Michigan",
         "addressCountry": "USA"
       },
-      "description": "$499 website accessibility audits combining automated screening with hands-on screen-reader testing by a blind professional.",
-      "priceRange": "$499"
+      "description": "Website accessibility audits led by a blind founder: a free first-page scan, a $9.99/month whole-site watch, $299 human verification by a blind specialist, and a $499 full audit — automated screening plus hands-on screen-reader testing.",
+      "priceRange": "$0-$499",
+      "founder": {
+        "@type": "Person",
+        "name": "William Friday",
+        "jobTitle": "Founder"
+      },
+      "areaServed": "Grand Rapids, Michigan",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Free first-page accessibility scan",
+          "description": "A no-cost scan of a business's first page, with plain-language findings and a recording of the findings.",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "The Watch — whole-site monthly scan",
+          "description": "A whole-site machine scan every month with a plain-language report and recording. Lists fixes; does not make them. Certification letter valid only while the watch is active.",
+          "price": "9.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Human Verification",
+          "description": "A blind specialist verifies the machine's findings by hand on a site's critical paths — up to about 25 pages — with a verified plain-language report and recording.",
+          "price": "299",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full Audit",
+          "description": "The whole site, every page, with a deeper human pass on top of the machine scan, and a priority report ranking barriers by what they cost.",
+          "price": "499",
+          "priceCurrency": "USD"
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can AI alone make my website accessible?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Automated scans and AI are good at the mechanical layer — missing image descriptions, unlabeled buttons, weak contrast. They cannot tell you whether a blind customer can actually finish your checkout, booking, or contact form with a screen reader and a keyboard. That takes a person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a scan or an audit guarantee my site is compliant, or stop a lawsuit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — and no honest company can promise that. Braille Bridges finds and explains accessibility barriers and ranks what to fix first. That is evidence about your site, in plain language. It is not a legal shield, and we will never sell it as one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Braille Bridges different from an accessibility widget?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A widget is code installed on your website that adjusts pages inside the visitor's browser. It does not change your site itself, and the barriers stay in your code. Braille Bridges installs nothing. We test your actual website the way a blind customer uses it — by ear, by keyboard, with a screen reader — and report what we find."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the free first look include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We scan the first page of your website — the page most customers see first — and send you a plain-language list of the barriers we found, plus a recording of the findings. No card, no catch, no obligation. It is one page only; the rest of your site is not checked at this tier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can't an automated scan see?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A scan reads code. It cannot tell whether a checkout can be completed start to finish with a screen reader, whether a keyboard gets trapped in a menu or pop-up, whether a form's error messages are announced or silent, or whether a PDF can be read at all. Those are the barriers customers actually hit — and the ones our human verification exists to check."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Share your website address — that is all we need. Use the request form on this page, call (616) 349-8187, or email williamgfriday@gmail.com."
+          }
+        }
+      ]
     }
   </script>
   <style>
@@ -568,6 +661,55 @@
       font-weight: 900;
     }
 
+    .compare-table {
+      width: 100%;
+      max-width: 58rem;
+      border-collapse: collapse;
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    .compare-table caption {
+      margin-bottom: 0.9rem;
+      text-align: left;
+      font-size: 1.15rem;
+      font-weight: 750;
+    }
+
+    .compare-table th, .compare-table td {
+      padding: 0.85rem 1rem;
+      border: 2px solid var(--ink);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .compare-table thead th {
+      background: var(--ink);
+      color: var(--page);
+      font-weight: 850;
+    }
+
+    .compare-table .ours td { font-weight: 850; }
+
+    .faq-list { max-width: var(--reading); }
+
+    .faq-item {
+      padding: 1.4rem 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    .faq-item:last-child { border-bottom: 2px solid var(--ink); }
+
+    .faq-item h3 { margin-bottom: 0.6rem; }
+
+    .faq-item p { margin-bottom: 0; }
+
+    .back-link {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      font-weight: 750;
+    }
+
     @media (max-width: 760px) {
       .hero { min-height: auto; }
       .steps, .pricing-grid, .included-list, .story-grid, .debt-stats { grid-template-columns: 1fr; }
@@ -709,6 +851,7 @@
 
       <h3 class="debt-subhead">Honest limits</h3>
       <p class="reading">Automated scans catch only a fraction of real barriers. Keyboard traps, screen-reader reading order, and whether a blind customer can actually finish a purchase or a booking do not show up in a scan. That is why the paid verification pairs automation with a hands-on screen-reader review by a blind accessibility specialist. A scan count is a starting point — it does not decide whether a site meets any legal standard.</p>
+      <p class="reading">The full picture, in one page: <a href="what-a-scan-misses.html">what a machine scan catches — and what it misses</a>.</p>
       <p class="door-contact">Braille Bridges LLC · Grand Rapids, Michigan · William Friday, Founder · <a href="tel:+16163498187">616-349-8187</a> · <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a></p>
     </section>
 
@@ -779,6 +922,7 @@
             <li>This is verification, not repair. We tell you exactly what's wrong and in what order to fix it; we don't rebuild your site.</li>
           </ul>
           <p><strong>Who this is for:</strong> the owner who wants a person — not just a machine — to stand behind the findings before spending money on fixes.</p>
+          <p><a href="verification.html">See how human verification works</a></p>
         </article>
         <article class="offer" aria-labelledby="tier-audit">
           <h3 id="tier-audit">Full Audit</h3>
@@ -797,6 +941,39 @@
           <p><strong>Who this is for:</strong> the business already feeling legal pressure — a demand letter, a complaint, a lawsuit — or any owner who wants the complete picture of the whole site, not a sample.</p>
         </article>
       </div>
+      <h3 class="debt-subhead">What human verification costs elsewhere</h3>
+      <table class="compare-table">
+        <caption>The human check, priced from each company's own published pricing — checked November 26, 2026.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Company</th>
+            <th scope="col">The human check</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UserWay</td>
+            <td>A human audit, sold separately from its widget</td>
+            <td>Starts at $4,900</td>
+          </tr>
+          <tr>
+            <td>accessiBe</td>
+            <td>Manual expert testing, included only in its top plan</td>
+            <td>$479 a month</td>
+          </tr>
+          <tr>
+            <td>AudioEye</td>
+            <td>Expert audits and fixes, behind a sales call</td>
+            <td>No published price</td>
+          </tr>
+          <tr class="ours">
+            <td>Braille Bridges</td>
+            <td>Human Verification — a blind specialist checks by hand</td>
+            <td>$299, one time, published</td>
+          </tr>
+        </tbody>
+      </table>
       <p class="price-context"><strong>The whole ladder, in 30 seconds:</strong> Start free: we look at your first page and tell you, in plain words, where it's locking people out. For $9.99 a month, we watch your whole site every month and send you the findings, with a certification letter that stays valid while the watch runs. When you want a person to verify the machine's work by hand on your most important pages, that's $299, one time. And when you need the whole site gone over deeply — especially if lawyers are already involved — the full audit is $499, one time. Every tier tells you the truth about your site in language you can understand. No tier hides what it doesn't do.</p>
       <p class="price-context">Questions? Call <a href="tel:+16163498187">(616) 349-8187</a>.</p>
       <p class="honest-note"><strong>One honest note that belongs on every tier:</strong> Braille Bridges finds and explains accessibility barriers. We do not guarantee ADA compliance, and no scan or audit can promise that. What we promise is the truth about your site, in plain language, at a fair price.</p>
@@ -812,6 +989,16 @@
       </ul>
     </section>
 
+    <section class="section" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Nothing to install. Nothing watching your visitors.</h2>
+      <p class="lead">Braille Bridges adds no code to your website — no widget, no script, no overlay. We test your public pages from the outside, the same way a customer arrives.</p>
+      <ul class="plain-list">
+        <li>Nothing is installed on your site, so nothing we do can slow it down, break a page, or change what your visitors see.</li>
+        <li>We collect no data about the people who visit your website. Our findings are about your pages — never about your customers.</li>
+        <li>When the work is done, there is nothing to remove. Your site stays exactly your site — you just know the truth about it.</li>
+      </ul>
+    </section>
+
     <section class="section" aria-labelledby="included-title">
       <h2 id="included-title">Included with every audit</h2>
       <ul class="included-list">
@@ -824,6 +1011,37 @@
     <section class="section" aria-labelledby="beyond-title">
       <h2 id="beyond-title">Beyond the audit</h2>
       <p class="reading">Need more than a one-time report? I offer consultation as your business grows — staff training so fixes stick, document and form cleanup, pre-launch testing by me as a blind screen-reader user, and a plain-language accessibility roadmap. As Braille Bridges grows, trained blind associates will join this work. Just ask what's possible.</p>
+      <p class="reading">Web designers and agencies: <a href="partners.html">offer your clients a human verification</a> — the $299 check, at the published price.</p>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions, answered straight</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Can AI alone make my website accessible?</h3>
+          <p>No. Automated scans and AI are good at the mechanical layer — missing image descriptions, unlabeled buttons, weak contrast. They cannot tell you whether a blind customer can actually finish your checkout, booking, or contact form with a screen reader and a keyboard. That takes a person.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can a scan or an audit guarantee my site is compliant, or stop a lawsuit?</h3>
+          <p>No — and no honest company can promise that. Braille Bridges finds and explains accessibility barriers and ranks what to fix first. That is evidence about your site, in plain language. It is not a legal shield, and we will never sell it as one.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How is Braille Bridges different from an accessibility widget?</h3>
+          <p>A widget is code installed on your website that adjusts pages inside the visitor's browser. It does not change your site itself, and the barriers stay in your code. Braille Bridges installs nothing. We test your actual website the way a blind customer uses it — by ear, by keyboard, with a screen reader — and report what we find.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What does the free first look include?</h3>
+          <p>We scan the first page of your website — the page most customers see first — and send you a plain-language list of the barriers we found, plus a recording of the findings. No card, no catch, no obligation. It is one page only; the rest of your site is not checked at this tier.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What can't an automated scan see?</h3>
+          <p>A scan reads code. It cannot tell whether a checkout can be completed start to finish with a screen reader, whether a keyboard gets trapped in a menu or pop-up, whether a form's error messages are announced or silent, or whether a PDF can be read at all. Those are the barriers customers actually hit — and the ones our human verification exists to check. The full picture: <a href="what-a-scan-misses.html">what a machine scan catches — and what it misses</a>.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I start?</h3>
+          <p>Share your website address — that is all we need. Use the request form below, call <a href="tel:+16163498187">(616) 349-8187</a>, or email <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a>.</p>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="request-audit" aria-labelledby="request-title">
@@ -844,6 +1062,7 @@
         <p>Email: <a href="mailto:williamgfriday@gmail.com">williamgfriday@gmail.com</a></p>
         <p>Research: <a href="#debt-index">The Grand Rapids Accessibility Debt Index</a></p>
         <p>Check your business: <a href="#check-your-business">See your scan result</a></p>
+        <p>Accessibility: <a href="accessibility-statement.html">Our accessibility statement</a></p>
       </address>
     </section>
   </footer>
